@@ -1,0 +1,60 @@
+
+\section{System Overview}
+
+
+% 近日用LATEX写一篇论文，需要在双栏版式中加入跨栏的图形。经多方查找资料，终于发现：原来在\begin{figure}中加入*即可，即用\begin{figure*}  \end{figure*} ！
+
+In this section, we focus mainly on the system overview of our LPSBL system, which aims at locating an unknown node. As it is shown in Fig. 1, A and B are two reference nodes with random locations. The perpendicular bisector between them divide the space into 3 different regions that are distinguished by their proximity to either reference nodes. The region which on the left of the perpendicular bisector are closer to A and farther to B, so the sequence is 12 while the sequence of the region which on the right is 21. The region on the perpendicular bisector is equidistant with A and B, so the sequence is 11.
+
+  \begin{figure}[ht]
+            \setlength{\abovecaptionskip}{0pt}
+            \centering
+            \includegraphics[scale=1.4,height=4.0cm]{image/SBLviaLPfig1.eps}
+            \caption{\label{systemoverview}System Overview.}
+            \vspace{-1mm}
+  \end{figure}
+
+\begin{figure}[hptb]
+\begin{center}
+\subfigure[Map + Sequence]{
+\label{Fig3:3-1}
+\begin{minipage}[t]{0.46\linewidth}
+\includegraphics[width=1\textwidth]{image/map_and_sequence.eps}
+
+\end{minipage}
+}
+\hspace{-0.1in}
+\subfigure[Estimated Result]{
+\label{Fig3:3-2}
+\begin{minipage}[t]{0.46\linewidth}
+\includegraphics[width=1\textwidth]{image/result.eps}
+\end{minipage}
+}
+\caption{\label{Fig3:}Sequence based target localization.}
+\end{center}
+\end{figure}
+
+
+Assume that a 2D localization space consists of n reference nodes, which is shown in Fig.2(a) as A, B, C, and D. Consider any two reference nodes and draw a perpendicular bisector to the line joining their locations. This perpendicular bisector divides the localization space into many different regions of three different types: vertices, edges, and faces. Now, for each region created by the arrangement induces by the set of perpendicular bisectors, determine the ordered sequence of the reference nodes’ ranks based on their distances from them. We define this ordered sequence of distance ranks as the location sequence. And we can see that the location sequence of a given region is unique to that region. Further, we make the following observations:
+
+1. All locations inside a region have the same location sequence.
+
+2. If each region in the arrangement is represented by its centroid, then there is a one-to-one mapping between a location sequence and the centroid of the region that it represents. For a vertex, the centroid is the vertex itself. For an edge, the centroid is its midpoint, and for a face, the centroid is the centroid of the polygon that bounds it.
+
+3. The total number of unique location sequences is equal to the sum of the number of vertices, the number of edges, and the number of faces created by the arrangement in the localization space.
+
+The order in which the ranks of reference nodes are written in a location sequence is determined by a predefined order of reference node IDs. We illustrate the above ideas through examples. Fig.2(a) shows the location sequences of four different regions. In the example, the predefined order of reference node IDs is ABCD. Region 1 is a face, and its location sequence is 1234, since the distance rank of A from it is 1 (A is the closest), and the respective distance ranks of B, C and D are 2, 3 and 4 (D is the farthest). Similarly, for Region 3, the location sequence is 4321, as the distance rank of A is the farthest (distance rank 4), D is the closest (distance rank 1), and B is closer than C and A. For Region 4, which is a vertex, the distance ranks of A, B and C, D are equal in pairs as it lies on the intersection of perpendicular bisectors of those pairs of reference nodes. Also, the pair C, D is closer to it than the pair A, B. Therefore, its location sequence is 3311. Similarly, for Region 2, which is an edge, the distance ranks of A and B are the same, and the location sequence is 1134.
+
+Then how to measure the distant correlation between the two rank orders? We use Kendall’s Tau [1] method in this paper. Then we can build a location sequence table [2].
+
+Now we have the location sequence table of this 2D space, if we can calculate the sequence of the unknown node through linear programming method, we could check the nearest reference node area from the location sequence. Finally we could get the estimated location of the unknown node.
+
+The procedure for localization of unknown nodes using location sequences is given as follows:
+
+1. Determine all feasible location sequences in the localization space and list the in a location sequence table.
+
+2. Determine the location sequence of the unknown node location by using TDOA measurements of localization packets exchanged between itself and the reference nodes and linear programming method. The TDOA location sequence will be a corrupted version of the original location sequence.
+
+3. Search in the location sequence table for the “nearest” location sequence to the unknown node location sequence. The centroid mapped to by that sequence is the location estimate of the unknown node.
+
+

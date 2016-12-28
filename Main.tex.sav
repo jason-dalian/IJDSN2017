@@ -1,0 +1,63 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage[cmex10]{amsmath}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{subfigure}
+\usepackage{epsfig}
+\usepackage{algorithmic}
+\usepackage[linesnumbered,ruled,slide]{algorithm2e}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{verbatim}
+\usepackage{caption2}
+\begin{document}
+
+\title{Sequence-Based Localization based on Linear Programming}
+
+
+\author{\IEEEauthorblockN{Naigao Jin, Lei Wang}
+\IEEEauthorblockA{School of Software, Dalian University of Technology, China\\
+ngjin@dlut.edu.cn, lei.wang@ieee.org}
+}
+
+% make the title area
+\maketitle
+
+\thispagestyle{plain}
+\pagestyle{plain}
+
+\begin{abstract}
+%\boldmath
+We introduce a novel sequence-based localization technique for wireless sensor networks. We show that the localization space can be divided into distinct regions that can each be uniquely identified by sequences that represent the ranking of distances from the reference nodes to that region.
+Linear programming
+
+we develop a localization technique that is robust to random errors due to the multipath and
+shadowing effects of wireless channels. Through extensive systematic simulations and a representative set of real mote experiments,
+we show that our lightweight localization technique provides comparable or better accuracy than other state-of-the-art radio signal
+strength-based localization techniques over a range of wireless channel and node deployment conditions.
+
+\end{abstract}
+
+\begin{IEEEkeywords}
+Time delay Estimation, Sparse Fourier Transform, Hamming Distance
+\end{IEEEkeywords}
+
+
+
+\IEEEpeerreviewmaketitle
+\input{Introduction}
+\input{Overview}
+%\input{Design}
+%\input{Discussion}
+%\input{Result}
+%\input{Relatedwork}
+%\input{Conclusion}
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{Reference}
+
+\end{document}

@@ -1,0 +1,216 @@
+
+\section{DESIGN}
+
+literature \cite{sallai2011acoustic}.
+
+\subsection{Node Sequence generation}
+
+
+In Fig. 4-a, given a dual-microphone smartphone, the perpendicular bisector of two microphones  can divide the localization space into two regions.  If the acoustic source is on the left of the perpendicular bisector, the binary code is 1, else the binary code is 0 which means the target is on the right of the perpendicular bisector. Fig. 4-b show the example of 2 smartphones that divide the localization space into 4 subregions.
+
+For $N$ smartphone reference nodes in the localization space, the whole number of combinations of binary sequences is $2^N$ in theory; However, in practical system, for $N$ reference smartphone nodes in the localization space, the possible number of combinations of binary sequences is $(N^2+N+2)/2$. The lower dimensionality of the sequence table enables the correction of errors in the measured sequence. This is one of the reasons that our proposed localization
+technique performs well despite channel errors. Localization system can benefit from higher performance (in terms of localization granularity) as the number of smartphones increases. Such extensibility is a unique advantage compared with dedicated microphone array hardware.
+
+\begin{figure}[hptb]
+\begin{center}
+\subfigure[Binary Coding]{
+\label{Fig4:4-1}
+\begin{minipage}[t]{0.46\linewidth}
+%\includegraphics[height=0.5,width=1.15]{image/8.eps}
+%\includegraphics[width=1.15\textwidth]{image/8.eps}
+\includegraphics[width=1.15\textwidth]{image/binary_coding_1.eps}
+
+\end{minipage}
+}
+\hspace{-0.1in}
+\subfigure[Two Smartphone Example]{
+\label{Fig4:2-2}
+\begin{minipage}[t]{0.46\linewidth}
+\includegraphics[width=1.15\textwidth]{image/binary_coding_2.eps}
+\end{minipage}
+}
+\caption{\label{Fig4:}Space Dividing.}
+\end{center}
+\end{figure}
+
+
+\subsection{Basic SBL Method}
+
+In this section, we introduce the Basic sequence-based localization technique based on linear programming method.
+
+Let us consider the sensor network in 2D space with N sensor nodes, node A, node B, i.e. The coordinates of nodes are given. The target of the algorithm is localizing the active speaker by the coordinates of the N nodes. We will use a simple example to explain the idea of Basic LPSBL Method. The simple system is shown in figure 3. There are 3 nodes which are node A, node B, and node C. the active speaker is drawn as the hexagram. Lab is the perpendicular bisector between node A and node B, Lbc is the perpendicular bisector between node B and node C, and Lac is the perpendicular bisector between node A and node C. In this simple example, these 3 perpendicular bisectors separate the 2D space into 6 area and the active speaker is in one of them. Also, we can obtain the radio from the sensor nodes and the TOA between active speaker and node A-ta is smaller than tb. Thus, we can get the conclusion that the active speaker is near A than B. Now we get the sequence for the searching area is 123.
+\begin{equation}
+(x_1-x)^2+(y_1-y)^2<(x_2-x)^2+(y_2-y)^2
+\end{equation}
+Simplify (1), we can get one of the linear programming inequality.
+\begin{equation}
+2xx_2-2xx_1+2yy_2-2yy_1<x_2^2-x_1^2+y_2^2-y_1^2
+\end{equation}
+With this method, all the linear programming inequalities are
+\begin{equation}
+\left\{\begin{matrix}
+&2xx_2-2xx_1+2yy_2-2yy_1<x_2^2-x_1^2+y_2^2-y_1^2\\
+&2xx_3-2xx_1+2yy_3-2yy_1<x_3^2-x_1^2+y_3^2-y_1^2\\
+&2xx_2-2xx_3+2yy_2-2yy_3<x_2^2-x_3^2+y_2^2-y_3^2
+\end{matrix}\right.
+\end{equation}
+
+
+Therefore, we can calculate the area of the active speaker.
+
+ \begin{figure}[t]
+ \begin{center}
+            \setlength{\abovecaptionskip}{0pt}
+            \centering
+            \subfigure[]{
+            \label{Fig.sub.1}
+            \begin{minipage}[t]{0.46\linewidth}
+            \includegraphics[width=1.15\textwidth]{image/Hamming1.eps}
+            \end{minipage}
+            }
+            \subfigure[]{
+            \label{Fig.sub.2}
+              \begin{minipage}[t]{0.46\linewidth}
+            \includegraphics[width=1.15\textwidth]{image/Hamming2.eps}
+            \end{minipage}
+
+            }
+            %\vspace{-5mm}
+            \caption{The relationship of 2D distance and Hamming distance}
+             \label{relationship}
+             \end{center}
+        \end{figure}
+
+%  \ref{fig1} : 在figure（table类似）环境中，先写\caption{}再写\label{}，也就是说，一定要把\label{}放在\caption{}后面。
+
+
+
+
+  \begin{figure}[ht]
+            \setlength{\abovecaptionskip}{0pt}
+            \centering
+            \includegraphics[scale=1.4,height=4.0cm]{image/Hamming_distance.eps}
+
+            \caption{Sequence Distance vs. Geographic Distance}
+            \label{SameRegion}
+            \vspace{-1mm}
+  \end{figure}
+
+
+
+
+\begin{algorithm}
+\caption{Basic HammingLoc}
+%\textbf{Input:} The location and direction of N Smartphones \\
+\textbf{Input:} The location of dual microphones for N Smartphones \\
+\quad \quad \quad  Measurement Information  $measure\_data$ \\
+%\quad \quad \quad  $P discrete 2d points$ \\
+\textbf{Output:} Location of the target\\
+
+\textbf{Step 1:} Database building:\\
+Localization space is discreted to P points:\\
+\For{$i \leftarrow 1$ \textbf{to} $P$}
+{
+\For{$j \leftarrow 1$ \textbf{to} $N$}
+{
+Computing binary code of the 2d points {C(j)} for j Smartphone:\\
+$ C(i,j) = sign(\left\| point(i) - mic(j,1) \right\| - \left\| point(i) - mic(j,2) \right\|)$;\\
+}
+$D(i) = \{C(i,1), C(i,2), \cdots,C(i,N) , point(i)\}$\\
+}
+
+\textbf{Step 2:} Get the binary code $T$ of the target from the measurement information: \\
+\For{$j \leftarrow 1$ \textbf{to} $N$}
+{
+Computing binary code of target {T(j)} for j Smartphone:\\
+$T(j) = sign(TDOA(j))$;\\
+}
+$T = \{T(1), T(2), \cdots,T(N)\}$\\
+
+\textbf{Step 3:}Searching in Hamming space:\\
+$\hat x = \mathop {\arg \min }\limits_{i = 1, \cdots ,P} \{ HD(T,D(i))\} $\\
+\end{algorithm}
+
+
+
+\subsection{SML LP}
+
+
+  \begin{figure}[ht]
+            \setlength{\abovecaptionskip}{0pt}
+            \centering
+            \includegraphics[scale=1.4,height=4.0cm]{image/SBLviaLPfig2.eps}
+            \caption{\label{systemoverview}System Overview.}
+            \vspace{-1mm}
+  \end{figure}
+
+
+As showed in  in Figure 2, given an external event occurred at ${X_s}{\rm{ = [}}{x_s},{y_s}]$, with the scanning angle $\theta$, the scanning start-line $l$ can be defined as
+ \begin{equation} \label{1}
+{\rm{ }}y\cos \theta  - x\sin \theta  + c{\rm{ = 0}}
+ \end{equation}
+where $c$ is a constant related to ${X_s}$ and $\theta$.
+
+In the Cartesian coordinate systems, the distance ${d_i}$ from $nod{e_i}$ to the scanning start-line $l$ is given by
+ \begin{equation} \label{2}
+ {d_i}{\rm{ =  }}{y_i}\cos \theta  - {x_i}\sin \theta  + c
+  \end{equation}
+
+ The node sequence is determined by the distances from nodes to the scanning start-line. Given the following node sequence $NodeSeq( \cdots ,i,j, \cdots )$, ${d_i} < {d_j}$ can be inferred. According to \eqref{2}, we have the following inequality:
+ \begin{equation} \label{3}
+{y_i}\cos \theta  - {x_i}\sin \theta  < {y_j}\cos \theta  - {x_j}\sin \theta; \  i,j \in S
+ \end{equation}
+
+Given multiple node sequences from $T$ scans with different scanning angles, we can get $T(N - 1)$ linear constraints if only the relation of two adjacent nodes is considered. The locations of nodes can be computed by solving the following linear feasibility problem:
+ \begin{equation} \label{4}
+{y_i}\cos \theta  - {x_i}\sin \theta  + \varepsilon  \le {y_j}\cos \theta  - {x_j}\sin \theta ; \  i,j \in S
+ \end{equation}
+where
+\begin{math}
+\varepsilon  > 0
+\end{math}.
+The problem of finding a feasible solution to a system of linear inequalities is a linear programming problem in which the objective function is the zero \cite{17}. We can find a solution to this feasibility program only if there is an embedding satisfying all of the constraints.  Describing the problem of sensor node localization in the standard form of linear programming as
+ \begin{equation} \label{6}
+ \quad \quad \hat X = \min {c^T}X
+  \end{equation}
+\begin{align*}
+ s.t. \   {A_{IEQU}}X &\le {b_{IEQU}} \\
+       {A_{EQU}}X &= {b_{EQU}} \\
+       0 \le X & \le {G_{\max }}
+\end{align*}
+where $c$ is zero vector.
+We use the location information of anchor node to get the equality constraint, and utilize the nodes sequences to set the inequality constraint. The bound constraint in the linear programming problem is set based on the size of the network deployment area.
+
+To summarize, the basic COMEDL is presented in Algorithm 2. The input is multiple node sequences $NodeSeqs$, the scanning angles, and anchor locations; the output is the locations of target nodes. Step 1 sets the objective function of the optimization problem.  Step 2 uses the anchor information to get the equality constraint. Each node sequence is processed at step 3 to get the inequality constraint. For each sequence, two adjacent nodes are used to construct an inequality constraint. After processing all sequences, Step 4 solves the LP problem to get the location of target nodes.
+
+Algorithm 2 illustrates the pseudo code of Weighting HammingLOC.
+
+\begin{algorithm}
+\caption{Weighting HammingLoc}
+ \textbf{Input:} The location coordinates of all smartphones \\
+\quad \quad \quad  The direction of all the smartphones \\
+\quad \quad \quad  Information about microphones $measure\_data$ \\
+\textbf{Output:} Location of the Target\\
+
+\textbf{Step 1:} Database building:\\
+\textbf{Step 2:} Get the binary code $T$ of the target from the measurement information: \\
+\textbf{Step 3:} Processing the binary sqquence: \\
+
+(1) Compting Hamming distance for each point:\\
+\For{$i \leftarrow 1$ \textbf{to} $P$}
+ {
+${HD_i} = \sum\limits_{i = 1}^N {\left( {{h_p}(i) \oplus {h_t}(i)} \right)}$
+ }
+(2) Compte the weight for each point using Eq. ( \ref{weight} ):\\
+
+(3) Normalizing the weights using Eq. (\ref{normalized}):\\
+
+(4) Estimating the source location using Eq.(\ref{estimated}):\\
+
+
+\end{algorithm}
+
+Unlike the monte carlo method uesd in\cite{ward2003particle,sheng2004sequential}, Hamming distance is adapted as weight function in Weighting HammingLOC. Compared with the Basic HammingLOC, Weighting HammingLOC use all possible points to locate the target. Although the computering load is increased, we can see that Weighting HammingLOC has two benefits: (1) without the problem of parameter selection ; (2) more robust to errors. Our evaluation in Sections \ref{section:results} shows that Weighting HammingLOC considerably enhances system accuracy.
+
+
+

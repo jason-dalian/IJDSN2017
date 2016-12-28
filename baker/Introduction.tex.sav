@@ -1,0 +1,38 @@
+
+\section{Introduction}
+
+Acoustic source localization (ASL) has found a variety of applications in civil and military field, such
+as human-computer interaction, videoconferencing, shooter localization in urban warfare \cite{sallai2011acoustic}, and wildlife localization in terrestrial environments \cite{canclini2013acoustic,masazade2010energy}. The centralized microphone array-based solution to ASL exploit multiple synchronized microphones to simultaneously acquire multiple signals, which have some limitations with regards to the sensing range and mobility for the large-scale applications.
+
+
+Ad hoc microphone arrays and so-called wireless acoustic sensor networks (WASNs) can overcome these limitations. A WASN consists of a set of wireless microphone nodes that are spatially distributed over the environment, usually in an ad-hoc fashion. Due to the wireless (radio) communication, the array-size limitations disappear and the microphone nodes can physically cover a much larger area, which vastly increases the amount of spatial information.
+
+Distributed acoustic source localization is increasingly becoming feasible due to recent advances in personal portable computing devices (e.g. smart phones, tablets and laptops) with the rapid deployment ability. In previous research on distributed acoustic source localization system, generally each node just have a single microphone element. In the past few years, there has been a growing interest for acoustic nodes made of two or more synchronized microphones, and most of the system need design the special hardware to capture the multiple channel synchronized audio signal. With the recent advances in mobile computing and communication technology, most mobile devices is equipped with multiple microphones onboard. In this paper, we propose an alternative system that leverages an ad-hoc group of dual-microphone smartphones (referred to as a smartphone array) to estimate the location of acoustic source.
+
+The location and orientation of smartphones, in fact, can be accurately estimated using any of the self-calibration methods that are available in the literature \cite{sallai2011acoustic}. For a typical WASN with limited resources (energy and bandwidth), it is important to limit the communication within the network. Therefore, it is desirable that only binary or multibit quantized data be transmitted from local sensors to the processing node (fusion center). Motivated by this, in this article we propose an target location estimation method using only binary data in WASN. Time Differences Of Arrival (TDOAs) between two microphones is achieved in each smartphone, then 1 bit measurement data (0-left,1-right) is provided by computing the sign of TDOAs. A novel cost function is then defined based on Hamming distance, and localization is then performed by minimizing the cost function.
+
+To our knowledge, the only previous work that use dual-micphone arrays is the work done by Aarabi \cite{aarabi1900fusion}, where he used 10 dual-microphone arrays distributed in a room and used their data to locate three speakers. The difference between our method and Aarabi's  method  are that the binary information ( the sign of TDOA ) are used rather than TDOA. The main contribution of this paper is the development and analysis of a low-complexity, distributed, real-time algorithm that uses the binary observations of the sensors for localizing the target in a fault tolerant way. This paper makes some major contributions, which can be described as follows:
+ \begin{enumerate}[(1)]
+
+\item We use a simple GCC (Generalized Cross-Correlation) algorithm to weaken the demand of computing TDOA in the presence of reverberation, and propose a novel acoustic source localization algorithms using binary information and probability to locate the target.
+
+\item Just 1 bit information is passed in the sensor network, which is benefit to communication load.
+
+\item We make use of smartphones which have dual time synchronized microphones to locate, so as to overcome the time synchronized problem of conventional localization methods in sensor network.
+
+ \end{enumerate}
+
+
+
+The rest of the article is organized as follows. Section \uppercase\expandafter{\romannumeral 2} presents an overview of the  localization system.
+Then, the basic Hamming distance method and advanced Hamming distance method are introduced in section \uppercase\expandafter{\romannumeral 3}.
+Section \uppercase\expandafter{\romannumeral 4} discusses several practical issues and the computational complexity.
+Section \uppercase\expandafter{\romannumeral 5} presents simulation results and an empirical evaluation on
+the Mirage test-bed. Section \uppercase\expandafter{\romannumeral 6} briefly surveys related work.
+Section \uppercase\expandafter{\romannumeral 7} concludes the whole article.
+
+
+
+
+
+

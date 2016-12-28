@@ -1,0 +1,46 @@
+\section{Discussion}
+
+\subsection{Time Synchronization }
+
+Like the effect of TOA detection error, time synchronization error maybe also occur flip problem when computing the node sequence in LPSBL system, then lead to localization error.
+Traditional time synchronization protocol, such as RBS, TPSN, and FTSP, can achieve synchronization less than 100ns. 
+Compared with the the effect of TOA detection error, time synchronization error has little effect on the LPSBL system.
+
+\subsection{Multiple Source Localization}
+
+Localizing multiple, simultaneously active sources is a more difficult problem. 
+In order to avoid conflict of several source, multiple source localization must be able to uniquely identify the signature of each acoustic source, which is beyond the capability of this paper. 
+So we will not do too much discussion about it in this paper.
+We just take an example, if the several targets are set as shown in Fig. 3, then we can calculate the location of the targets 
+because the acoustic source I is far enough from source II and the single from them can be distinguished. 
+So the smartphones close to the area I could handle the source I, and another smartphones close to the area II could handle the source II. 
+The Fig. 3 also describes system scalability.
+We can use a range to divide the large-scale area into to a smaller area that is large enough to cover the coverage of the acoustic source's signal.
+And the small area can be handled as our algorithm proposed by preceding part of the paper.
+
+%  \label必须放在\caption命令的后面
+  \begin{figure}[ht]
+            \setlength{\abovecaptionskip}{0pt}
+            \centering
+            \includegraphics[scale=1.4,height=4.0cm]{image/fig3.eps}
+             \vspace{1mm}
+			\caption{Scalability for large-scale system}
+			\label{Fig3}
+            \label{multiple_source_localization}
+            \vspace{-5mm}
+  \end{figure}
+
+
+\subsection{Energy Efficiency}
+
+Energy efficiency is another issue in distributed acoustic sensor networks.
+Most of the time, acoustic sensor nodes keep asleep until the acoustic source appears in its sensing area.  
+The smartphones node near the acoustic source detect the acoustic signal, then alert its neighbour smartphones to prepare for receiving the signal.
+In this way, the proposed LPSBL system can save energy of acoustic sensors, then prolong the service life of distributed acoustic sensor networks.
+
+
+
+
+
+
+

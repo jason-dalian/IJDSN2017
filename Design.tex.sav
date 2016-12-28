@@ -1,0 +1,191 @@
+
+\section{DESIGN}
+
+Hamming distance measures the number of dimensions where two vectors have different values.
+In  Fig. 2, the distance of the two points in 2D space is proportional to their hamming distance. Therebefore, we can turn the acoustic source localization into the searching problem in the Hamming space. Given a query binary vector from multiple smartphones, we can estimate the location by retrieveing  the vectors in the beforehand database that have the smallest Hamming distance from the query vector. In this section, we first provides a basic Hamming-based localization method, then we describe the advanced Hamming method in the next subsection. Consider the practical issue, the SNR-weighting Hamming method is proposed in the last subsection.
+
+ \begin{figure}[t]
+ \begin{center}
+            \setlength{\abovecaptionskip}{0pt}
+            \centering
+            \subfigure[]{
+            \label{Fig.sub.1}
+            \begin{minipage}[t]{0.46\linewidth}
+            \includegraphics[width=1.15\textwidth]{image/Hamming1.eps}
+            \end{minipage}
+            }
+            \subfigure[]{
+            \label{Fig.sub.2}
+              \begin{minipage}[t]{0.46\linewidth}
+            \includegraphics[width=1.15\textwidth]{image/Hamming2.eps}
+            \end{minipage}
+
+            }
+            %\vspace{-5mm}
+            \caption{The relationship of actual distance and Hamming distance}
+             \label{Fig.2}
+             \end{center}
+        \end{figure}
+
+
+\subsection{Basic Method }
+
+In this section, we will introduce the Basic HAMLOC Method. Let us consider a sensor network with a target  and
+M dual-micphone smartphones randomly deployed in an area of size S. The
+top-level idea for basic HAMLOC is to split the whole sensor network
+area into small pieces described by binary code.
+
+We use the sign of TDOA as measurement information, which we can easily distinguish the target at the left of the perpendicular bisector of the pair of microphone nodes or right. As shown in Fig. 1, to each pair of microphones, given the location and of direction the microphone nodes, we can get a Hamming code about the target. From the Fig. 2, we can learn that the actual distance is proportional to the hamming distance. So when the Hamming distance $d{_h}$  is close to zero then the actual distance is very closed. In other words, if we find the smallest Hamming distance between target and $p{_i}$ , we can find the actual location $\left( {x,y} \right)$ about $p{_i}$  through querying the training list. $\left( {x,y} \right)$  is also the location about the target. The solution to the problem can be described as following:
+
+For two faces fi and fj , now there are two types
+of distance: (i) the geographical distance GD(fi, fj) between
+the center points of fi and fj, and (ii) the Hamming distance
+HD(Sfi , Sfj ). For these two distances, we have the following
+observation I :
+
+
+(1)	We divide the space into $m \times n$ , so there are points $p{_i}$ , $i = 1,2 \cdots m \cdot n$. Then we train the $p{_i}$ , supposing there is an acoustic source at the point $p{_i}$ . The $A{_i}$ (one of the anchors) can compute the TDOA and get the sign of the TDOA, according to the sign we can get a character $C{_i}$,${C_i} \in \{ 0,1\}$ . After the computing of all the anchors, we can get a Hamming code $h{_i}$ ,$h = \{ {C_1},{C_2} \cdots {C_N}\}$. After the training we get a list L about the training points. $L{_i}$ is a item in the list, ${L_i} = \{ {h_i},\left( {{x_i},{y_i}} \right)\} $.
+
+(2)	When the acoustic source makes a sound, all the anchors compute the TDOA , get the sign and determine the characters. Then we get the Hamming code $h{_t}$ about the target.
+
+(3)	According to figure.2., we learn about that if two points are very close the Hamming distance between them is also small. So we can compute the Hamming distance between $h{_t}$  and $h{_i}$ (in the training list each term should be compared), then picking up the points from the list which have smallest Hamming distance with target. These points are near the target in the 2D space. By querying the training list we can get the actual locations $(x,y)$ about the points, taking the center of these actual locations then we can get the actual location about the target.
+
+\begin{algorithm}
+\caption{Basic Method}
+ \textbf{Input:} The location coordinates of all the anchors \\
+\quad \quad \quad  The direction of all the microphones \\
+\quad \quad \quad  Information about microphones $measure\_data$ \\
+\quad \quad \quad   There are $m \cdot n$ points\\
+\textbf{Output:} Location of the unknown node\\
+
+train each of the points and get the Hamming code $h_{p}$ of each point
+
+$h_{p} = \{ {C_1},{C_2} \cdots {C_N},({x_p},{y_p})\}$
+
+$C{}_i \in \left\{ {0,1} \right\}$
+
+get the Hamming code $h_{t}$ of the target
+
+   $h_{t} = \{ {C_1},{C_2} \cdots {C_N}\}$
+
+ \For{$p \leftarrow m*n$ \textbf{to} $1$}
+ {
+${d_p} = \sum\limits_{i = 1}^N {\left( {{h_p}(i) \oplus {h_t}(i)} \right)}$
+ }
+      $m = \min ({d_p})$
+
+      $i=1$
+
+ \For{$p \leftarrow m*n$ \textbf{to} $1$}
+ {
+      \If{${d_p}==m$}
+      {
+     ${x_t} = {x_p} , {y_t} = {y_p} $
+     }
+ }
+
+     $\rightarrow  ({x_t},{y_t})$
+\end{algorithm}
+
+
+By using Basic algorithm, in Step 3 after computing, we can finally get a series of points which are close to the target. Then we choose the point which is the closest to the target and we can get the $(x,y)$ about the target. But this method has some defects. If there is noise or error in the 2D space, the measurement data that is provided by the anchors is not accurate which will influence the method. So we propose the improved method to solve the problem.
+
+\subsection{Advanced Hamming Method}
+Above, we put forward a basic method to calculate the Hamming distance. In the method, we just choose one point whose Hamming distance is smallest with target's as the target. However, through the experiment we realized that the way is not perfect and there exist a big error between the location we get and actual target. So we purpose an improved way based on the weighted method. For the $m \times n$ points, we give them different weights according to the distance from the target. If the point is close to the target, we give it a large weight. For other points we give them small weights. From the basic method, we learn that if the Hamming distance is small then the actual distance between the two points is also small. So the Hamming distance is inversely proportional to the weight and we set the reciprocal of the Hamming distance as the weights. As shown in equation(4):
+\begin{equation}
+{w_i} = \frac{1}{{{d_i}}}
+\end{equation}
+In the advanced hamming method, we don't only use the points which are close to the target and we change the step 3 in the basic way. After getting the Hamming distance ${{d_i}}$, we computing the weights ${{w_i}}$ and we set normalization as $W_i$.
+ \begin{equation}
+{W_i} = \frac{{{w_i}}}{{\sum\limits_{i = 1}^N {{w_i}} }}
+\end{equation}
+ And we use all the points to estimate the location of the target, as shown in equation(6):
+\begin{equation}
+P = \sum\limits_{i = 1}^{m \cdot n} {{W_i} \cdot {p_i}}
+\end{equation}
+We suppose P is the location of the target and the ${{p_i}}$ is the location of the points($i \in \left\{ {1,2,{\rm{\cdot\cdot\cdot,m}} \cdot {\rm{n}}} \right\}$). Through this way we can get the location of the target. So the basic method can be improved as following:
+
+
+
+\begin{algorithm}
+\caption{Advanced Hamming Method}
+ \textbf{Input:} The location coordinates of all the anchors \\
+\quad \quad \quad  The direction of all the microphones \\
+\quad \quad \quad  Information about microphones $measure\_data$ \\
+\quad \quad \quad The Hamming code $h_{p}$ and $h_{t}$ about all the\\
+\quad \quad \quad  points and target\\
+\quad \quad \quad The actual location $\left( {{x_i},{y_i}} \right)$ of all points
+\textbf{Output:} Location of the unknown node\\
+
+\For{$p \leftarrow m*n$ \textbf{to} $1$}
+ {
+${d_p} = \sum\limits_{i = 1}^N {\left( {{h_p}(i) \oplus {h_t}(i)} \right)}$
+ }
+
+ \For{$p \leftarrow m*n$ \textbf{to} $1$}
+ {
+${w_p} = \frac{1}{{{d_p}}}$
+ }
+ \For{$i \leftarrow m*n$ \textbf{to} $1$}
+ {
+${W_i} = \frac{{{w_i}}}{{\sum\limits_{i = 1}^N {{w_i}} }}$
+}
+
+${x_t} = \sum\limits_{i = 1}^{m \cdot n} {{W_i} \cdot {x_i}} $
+
+${y_t} = \sum\limits_{i = 1}^{m \cdot n} {{W_i} \cdot {y_i}} $
+
+  $\rightarrow  ({x_t},{y_t})$
+\end{algorithm}
+
+ In the method, we use all the points to locate the target including one point. Because just using ont point may cause a large error and the weighted method can avoid it. For the points which are close to the target we give them large target and others we give them little. By this way, we can almost ignore the points that are far away the target and get the center of the points close to it.
+
+
+\subsection{Method Based On the Actual}
+
+Above, we put forward a basic method and improved way to calculate the Hamming distance. However, if there exist noise in the space, the noise will influence the anchors that can make errors when a pair anchors compute $TDOA$. Then we can get the opposite result when we compute the sign of the $TDOA$ which may lead to the difference of Hamming distance and the error about actual location. So we introduce $SNR$(Signal to Noise Ratio) which means the size of the noise and use weighted method to compute the Hamming code.
+\begin{equation}
+SNR = \frac{{{P_{signal}}}}{{{P_{noise}}}} = \frac{S}{N}
+\end{equation}
+In the equation(7), ${{P_{signal}}}$ means Power of Signal. So the size of the value is inversely proportional to the size of the noise.
+
+Before we compute the hamming code of each training point, we should measure the noise ${N_i}$ at each anchor and compute ${(SNR)_i}$. In the step 3, when we compute Hamming code we should add the weighted weights ${f_i}$. When the value of ${(SNR)_i}$ is equal to $1$, the noise at this anchor is as strong as sound which means the anchor is unreliable. So we give up these anchors whose ${(SNR)_i}$ is less than or equal to $1$ and set the weight ${f_i}$ into $0$. On the other hand, when the ${(SNR)_i}$ is greater than or equal to $10$, the strength of the sound is far stronger than the noise. So these anchors is fully trusted and we set the weight ${f_i}$ into $1$. For other anchors, sound is a bit bigger than noise but also exist the possibility of error. So we set the weight ${f_i}$ into $\frac{{{{\left( {SNR} \right)}_i}}}{{10}}$, the weight can increased with the SNR. Weighting method needs to consider normalization, so we should do the normalization of ${f_i}$. For each anchor, we can compute ${f_i}$ and we set normalization as $F_i$.
+\begin{equation}
+{F_i} = \frac{{{f_i}}}{{\sum\limits_{i = 1}^N {{f_i}} }}
+\end{equation}
+So the basic method can be improved as following:
+
+
+
+\begin{algorithm}
+\caption{Method Based On the Actual}
+ \textbf{Input:} The location coordinates of all the anchors \\
+\quad \quad \quad  The direction and $F_i$ of all the microphones \\
+\quad \quad \quad  Information about microphones $measure\_data$ \\
+\quad \quad \quad  The Hamming code $h_{p}$ and $h_{t}$ about all the\\
+\quad \quad \quad  points and target\\
+\quad \quad \quad The actual location $\left( {{x_i},{y_i}} \right)$ of all points
+\textbf{Output:} Location of the unknown node\\
+
+\For{$p \leftarrow m*n$ \textbf{to} $1$}
+ {
+${d_p} = \sum\limits_{i = 1}^N {{F_i} \cdot \left( {{h_p}\left( i \right) \oplus {h_t}\left( i \right)} \right)} $
+ }
+%   \For{$p \leftarrow m*n$ \textbf{to} $1$}
+ %{
+%${w_p} = \frac{1}{{{d_p}}}$
+ %}
+% \For{$i \leftarrow m*n$ \textbf{to} $1$}
+ %{
+%${W_i} = \frac{{{w_i}}}{{\sum\limits_{i = 1}^N {{w_i}} }}$
+%}
+as algorithm2 get the weights $W_{i}$ of each point
+
+Then compute the actual location of the target
+
+  $\rightarrow  ({x_t},{y_t})$
+\end{algorithm}
+
+
+
+As we known, SNR means the size of the noise and is inversely proportional to the noise. So when the SNR is large, the noise at the anchor is very obvious which can have a bad influence on the anchor. For such anchors we should give little weight and give other anchors large. So we treat $F_i$ as the weighted weights. By using Basic improved algorithm, we can finally get an approximate location of the target. This method can ignore the influence of the noise and reduce the error about actual location.

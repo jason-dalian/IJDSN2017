@@ -1,0 +1,111 @@
+
+\section{Results}
+\label{section:results}
+
+\subsection{Simulation}
+In this section, we try to simulate our Robust sequence-based localization technique based on linear programming (Robust LP-SBL) with SBL method and Basic LP-SBL using MATLAB in a reverberant room. In the simulation, we randomly generate a lot of smartphones in a 10*10 m area. To reduce the impact of the uncertainty of position and orientation to smartphones on the accuracy of localization, we add a certain amount of location error and measure error in all the simulations. Also, the node number error is in comparison. All the statistics are running more than 1000 times for high confidence, and reported by CDF figure. Table 1 illustrates the default simulation setup parameters.
+
+\begin{table} \normalsize
+\caption {\textbf{Default configuration parameter}} %title of the table
+\centering % centering table
+    \begin{tabular}{|c|c|}
+        \hline
+Parameter & Description \\
+ \hline
+Field Area & 10 $\times$10 \\
+ \hline
+ Number of Target Node  & 	1  \\
+ \hline
+Scale       &  10 \\
+ \hline
+Microphone Distance  &0.2 \\
+\hline
+$\alpha$   &  0.75\\
+\hline
+Number of Anchors & 50 (Default) \\
+ \hline
+Location Error Range	 & 0.10 (Default) \\
+ \hline
+Angle Error	Range & 5 (Default) \\
+ \hline
+Random-Seed Loop	 & 50 times (Default) \\
+ \hline
+Error Statistics	 &  RMSE \\
+        \hline
+    \end{tabular}
+\end{table}
+
+
+
+The results of simulation evaluation are as following:
+
+\textbf{1) Impact of the TOA measurement error:}
+In this experiment, we perform the impact of the TOA error of anchors for the three methods being compared with the range from 0 to 2 degree in steps of 0.2. Other simulation parameters keep default. We can guess that the TOA measurement error may influence the localization accuracy. Fig.1 confirms it. As it is shown in Fig.1, the localization error of the three methods is increasing as the TOA error growth. Thus, we can determine the speculation that the error of TOA measurement can influence the localization accuracy is true. Also, both the LP-SBL method and the Robust LP-SBL method have a better result than the Basic SBL method. The Robust LP-SBL method get the best experimental result and more robust than other two methods. In Fig.1, when TOA error is less than 1.0, the localization error of our Robust LP-SBL method is nearly zero, which means that the Robust LP-SBL method can localize the target node with no error when TOA error is not too big.
+
+  \begin{figure}[t]
+            \setlength{\abovecaptionskip}{0pt}
+            \centering
+            \includegraphics[height=5.0cm]{image/node_number_30.eps}
+            %\vspace{-5mm}
+            \caption{Localization Error vs. TOA Error}
+             \vspace{-1mm}
+             \label{fig13}
+        \end{figure}
+
+\textbf{2) Impact of the location error:}
+ In this experiment, we try to compare the three methods using location error of anchors. In Fig.2, we choose the location error with the range from 0 to 0.5 degree in step of 0.05 to test the positioning performance for the three methods. Fig.2 indicates the location error of anchors has an effect on the positioning results. With greater location errors, the localization accuracy of Basic SBL method is higher than LP-SBL and Robust LP-SBL. For Basic SBL, the positioning error changes obviously as location error increases in Fig.2. However, as demonstrated in Fig.2, the positioning error of Robust LP-SBL varies little, which demonstrates the Robust LP-SBL method is the most robust one.
+
+
+  \begin{figure}[t]
+            \setlength{\abovecaptionskip}{0pt}
+            \centering
+            \includegraphics[height=5.0cm]{image/l_0.1_m_0.5.eps}
+            %\vspace{-5mm}
+            \caption{Localization Error vs. Node Location Error}
+             \vspace{-1mm}
+             \label{fig13}
+        \end{figure}
+
+\textbf{3) Impact of the number of anchors:}
+ In this experiment, we investigate the localization error and number of anchors with a different number of anchors from 20 to 60 in steps of 10. We run the simulation with the measure error is 0, and other simulation parameters are default. Since the three indoor localization methods being compared are aiming to locate the target by processing the anchors, but the Basic SBL method can cause a big error while the Robust LP-SBL method is aiming to avoid the appearance and get better result. We can speculate that with more anchors, the whole area will be divided into smaller parts, thus more accurate localization estimation should be achieved in the Robust LP-SBL method. Fig.3 confirms our expectation. As shown in Fig.3, with the number of anchors increases, localization error for the SBL method rises sharply while the Basic LP-SBL method and the Robust LP-SBL method are rise slowly. Fig.3 also shows that the localization error caused by the Robust LP-SBL method is much smaller than the other two methods.
+  \begin{figure}[t]
+            \setlength{\abovecaptionskip}{0pt}
+            \centering
+            \includegraphics[height=5.0cm]{image/toa_l_0.1_m_1.eps}
+            %\vspace{-5mm}
+            \caption{Localization Error vs. Number of Anchors}
+             \vspace{-1mm}
+             \label{fig13}
+        \end{figure}
+
+ \textbf{Summary:} From the above experiments, we conclude that when given the appropriate condition, including the number of anchors, the number of error anchors, the location error and TOA measurement error of the anchors, we can get the following conclusions:
+
+ (1) The number of anchors can improve the localization accuracy, especially when we have many anchors in the indoor environment;
+
+ (2) The number of error anchors can affect the localization accuracy, and the Robust LP-SBL Method is the best when it is in the range from 0.05 to 0.5 degree.
+
+ (3) The error of node location can impact the localization error, the Robust LP-SBL Method is much better than the Basic SBL method and the LP-SBL method.
+
+ (4) The error of node angle can impact the localization error, and the Robust LP-SBL Method is the best method among these three methods.
+
+
+\subsection{Emulation}
+
+COMEDL is evaluated with both extensive simulation and test-bed experiments with 44 MICAz motes using straight-line light scan as localization events. We have also compared its performance with that of MSP.
+
+In this section, we report system implementation of our design on a physical test-bed called Mirage, a large indoor test-bed
+% we built over a six-month period
+that can support up to 360 nodes. The whole test-bed is composed of six 4-feet by 8-feet boards.
+%Each board in the system can be used as an independent sub-system, which is powered, controlled and metered separately.
+Figure 1 shows a snapshot of an optical straight-line scanning event generated by projectors of our Mirage test-bed. We use three high-end HITACHI CP-X1250 projectors, connected through a MATROX Triplehead2go graphics expansion box, to create an ultra-wide integrated display on six boards. In our evaluation, totally 44 MICAz motes were mounted on the test-bed. We have generated straight-line scan at scanning line speed of 4.3 feet/s on Mirage test-bed. The localization performance is evaluated by root mean square error (RMSE) in feet.
+
+Fig. 5  depict the results of node localization with 3 anchors and 30 target nodes. The number of scanning events is 10, and the scanning angle is known. In MSP, the whole area is modeled as a 240$*$80 grid map since the test-bed has a size of 24 feet by 8 feet. In the figures, red squares stand for anchor nodes, and blue circles are the target nodes. An arrow origins from the real position of each target node and points to its estimated location. From Fig. 5 , we can see that our method successfully accomplished sensor node localization with less location error.
+  \begin{figure}[t]
+            \setlength{\abovecaptionskip}{0pt}
+            \centering
+            \includegraphics[height=5.0cm]{image/10.eps}
+            %\vspace{-5mm}
+            \caption{Test-bed localization result of the proposed COMEDL}
+             \vspace{-1mm}
+             \label{fig13}
+        \end{figure}

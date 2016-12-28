@@ -1,0 +1,89 @@
+\section{Related Work}
+
+\subsection{Acoustic source localization in sensor networks}
+%Acoustic source localization in sensor network is a widely-studied problem, which can be divided into two major categories: centralized systems and cluster-based 2-tier architecture, and distributed systems.
+%
+%range-based and range-free:
+%
+%
+%range-free methods~\cite{yedavalli2008sequence,wang2008lightning,fu2012orthogonal,zhong2009tracking}.
+%
+%Range-based method includes energy ~\cite{sheng2003energy,rabbat2004decentralized,A2013,kim2012smartphone,yang2013freeloc,hossain2010cramer,cheng2013rss }, angle of arrival (AOA)~\cite{kaplan2001maximum}, time of arrival (TOA)~\cite{wang2003acoustic,venkateswaran2012localizing }, time difference of arrival (TDOA)~\cite{canclini2013acoustic,ledeczi2005countersniper,qiu2011feasibility,xu2011whistle}.
+%
+%
+%sheng2005maximum
+%
+%acoustic energy attenuation model:
+%These algorithms require less wireless communication resource
+%than the time delayed estimation algorithms and hence are more
+%suitable for WSN applications. Specifically, Sheng and Hu \cite{sheng2005maximum}
+%have proposed an exact Maximum Likelihood Estimation
+%(MLE) method to localize multiple targets. A Projection Onto
+%Convex Sets approach \cite{blatt2006energy} and a weighted least square approach\cite{meesookho2008energy} have been proposed recently to alleviate the computation
+%complexity in solving the MLE estimate
+%
+%DOA:
+%By allowing increased computa-tional resources in the nodes, the absolute minimum transmission
+%bandwidth can be attained when each sensor node transmits only
+%a direction-of-arrival (DOA) estimate to the central processing
+%node [2, 3]. Moreover, localization using DOA estimates from
+%multiple microphone arrays ※relaxes§ the time-synchronization con-
+%straints as the individual nodes need not be perfectly synchronized.
+%[2] A. Ledeczi, G. Kiss, B. Feher, P. Volgyesi, and G. Balogh,
+%※Acoustic source localization fusing sparse direction of arrival
+%estimates,§ in Int. Workshop on Intelligent Solutions in Em-
+%bedded Systems, 2006.
+%[3] A. Farina, ※Target tracking with bearings-only measure-
+%ments,§ Signal Processing, vol. 78, no. 1, 1999.
+%
+%Energy-based method does not need time synchronization; however, it is too sensitive to channel conditions.  AOA-based methods usually require to be equipped with at least two microphones on each node, as well as complicated microphone array processing techniques, which demand high computational complexity.  The TOA methods employ the information of accurate signal transmission time from the acoustic source to the receiver; however, they must use time synchronization among participating nodes. Compared to TOA, the TDOA model considers the difference of the arrival times between the two clock-synchronized microphone nodes, without knowing the starting time of the acoustic source.  Range-free methods mainly utilizes the binary measurement information to judge whether target appears in the given area, then the target localization can be achieved by nodes cooperation. Range-free localization features low system cost but less accuracy, depending on the density and distribution of anchor nodes. Range-free methods feature less accuracy but simpler, and are more appropriate than the range-based method in large-scale WSNs.
+%
+%\cite{ sallai2011weapon}  developing a counter-sniper system    the  microphone array of four  microphones
+%\cite{blumstein2011acoustic,collier2010acoustic,allen2008voxnet} monitor wildlife
+%\cite{ allen2008voxnet}  four-microphone array
+%
+%Wu used three two-microphone arrays to locate two sound sources
+%in a distributed way in which only the local DOA estimates are communicated among arrays \cite{wu2012fusion}.
+%
+%
+%DiBiase SRP-phase transformation(SRP-PHAT), used an array of distributed
+%microphones within a room and integrated their signals to create a room-wide microphone array \cite{dibiase2000high}
+%
+%Astapov are investigating the application of SRP-PHAT in a WSN using linear arrays \cite{astapov2013simplified}.
+%
+%Liu estimate the sound source position by finding the intersection of several DOA
+%lines from each microphone array \cite{liu2005acoustic}. Multiple microphone arrays are employed in estimating the direction of arrival of sound. Direction vectors and array centers are communicated to a central processor, where the source is localized by finding the intersection of the direction lines defined by the direction vectors and the associated array centers. In the case of non-intersecting lines, the sound source
+%position is defined to be the point that has minimal overall distance from the lines. In ideal
+%conditions this method gives optimal sound source position estimate, but errors due to noise
+%sources, inaccurate microphone calibration, etc. can lead to erroneous DOA estimates and
+%therefore also erroneous sound source position estimate. The fusion of DOA data can also be done by using the Spatial Likelihood Function presented in \cite{aarabi1900fusion}. By using not only the most likely DOA estimate, but also the likelihood of other DOA estimates, the sound source localization can be made more robust against estimation errors.
+%
+%In [48]
+%Liu et al. estimate the sound source position by finding the intersection of several DOA
+%lines from each microphone array.
+%
+%global SLF provides more
+%robust speaker localization when there are errors in microphone calibration. By using not only the most likely DOA
+%estimate, but also the likelihood of other DOA estimates, the sound source localization can
+%be made more robust against estimation errors.
+%The most straightforward way for combining the SLFs of each array is to sum the SLFs
+%of each individual array to form a global estimate of the SLF function.
+%generating the global SLF have been proposed. A Maximum
+%Likelihood (ML) estimate of the sound source location by using acoustic energy is presented
+%in [69] and in [6] ML estimate is formulated by using relative time delays.
+%
+%[5] Parham Aarabi. The fusion of distributed microphone arrays for sound localization.
+%EURASIP Journal of Applied Signal Processing (Special Issue on Sensor Networks),
+%2003(4):338 每 347, 2003.
+%[6] Thibaut Ajdler, Igor Kozintsev, Rainer Lienhart, and Martin Vetterli. Acoustic source
+%localization in distributed sensor networks. In Conference Record of the Thirty-Eighth
+%Asilomar Conference on Signals, Systems and Computers, pages 1328 每 1332, November
+%2004.
+%[48] Hui Liu and Evangelos Milios. Acoustic positioning using multiple microphone arrays.
+%The Journal of the Acoustical Society of America (JASA), 117(5):2772 每 2782,
+%May 2005.
+%[69] Xiaohong Sheng and Yu-Hen Hu. Maximum likelihood multiple-source localization
+%using acoustic energy measurements with wireless sensor networks. IEEE Transactions
+%on Signal Processing, 53(1):44 每 53, 2005.
+
+
