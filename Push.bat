@@ -1,5 +1,5 @@
 ﻿@echo off
-@title windows下批处理git上传演示
+@title windows git
 
 set path=%path%;
 
