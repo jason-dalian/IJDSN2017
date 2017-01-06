@@ -52,9 +52,7 @@ Fig. \ref{fig4} also shows that the localization error caused by the LPSBL metho
             \caption{Localization Error vs. Number of Anchors}
              \vspace{-7mm}
              \label{fig4}
-        \end{figure}
-
-		
+        \end{figure}		
 \textbf{2) Impact of the location error:}
  In this experiment, we compare the two methods for different location errors of anchors. 
  In Fig. \ref{fig5}, we choose the location error with the range from 0 to 0.4m in step of 0.02m for the two methods. 
@@ -62,8 +60,6 @@ Fig. \ref{fig4} also shows that the localization error caused by the LPSBL metho
  The proposed LPSBL method are more accurate than the SBL method. 
  For the SBL method, the positioning error changes obviously as location error increases in Fig. \ref{fig5}. 
  However, as demonstrated in Fig. \ref{fig5}, the positioning error of LPSBL varies little, which demonstrates the LPSBL method is the most robust to the node location error.
-
-
   \begin{figure}[htb]
           %  \centering
 		   \vspace{-25mm}
@@ -83,8 +79,6 @@ Thus, we can determine the speculation that the error of TOA measurement can inf
 Also, the LPSBL method have a better result than the SBL method. 
 %The Robust LPSBL method get the best experimental result. 
 It is shown in Fig. \ref{fig6}, the localization error of our LPSBL method is stable no matter which degree the TOA error is, which means that the LPSBL method can localize the target node with little error when TOA error is not too big.
-		
-		
   \begin{figure}[htb]       
            % \centering
 			\vspace{-15mm}
@@ -94,12 +88,6 @@ It is shown in Fig. \ref{fig6}, the localization error of our LPSBL method is st
              \vspace{-5mm}
              \label{fig6}
         \end{figure}
-
-
-
-
-
-		
  \textbf{Summary:} From the above simulations, considering the different factors, including the number of anchors, the node location error and TOA measurement error of the anchors, we can get the following conclusions:
 
  (1) With increasing number of the number of anchors, localization errors decrease for both methods, and LPSBL has better localization performance;
@@ -122,7 +110,6 @@ In the figure, blue squares stand for anchor
 nodes, red circle squares are the real position of acoustic sources, and black dot are the estimated location by LPSBL. An arrow origins from the estimated location of each acoustic source and points to its real position. 
 As the results showed in Fig.\ref{fig7}, most of estimated locations are close to the ground truth and the errors between them is very small,
 which means that LPSBL can effectively localize the acoustic source with good robustness.
-
   \begin{figure}[htb]
               %    \centering
 			    \vspace{-12mm}
@@ -132,4 +119,3 @@ which means that LPSBL can effectively localize the acoustic source with good ro
              \vspace{-5mm}
              \label{fig7}
         \end{figure}
-

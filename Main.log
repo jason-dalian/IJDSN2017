@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=latex 2016.10.13)  28 DEC 2016 16:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=latex 2016.10.13)  6 JAN 2017 20:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -348,7 +348,11 @@ fil }\else \hbox to\hsize {\normalfont \footnotesize \box \@tempboxa \hfil }\fi
 \c@ContinuedFloat=\count116
 Package caption Info: float package is loaded.
 Package caption Info: subfigure package is loaded.
-) (./Main.aux)
+) (./Main.aux
+
+LaTeX Warning: Label `fig2' multiply defined.
+
+)
 \openout1 = `Main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
@@ -393,27 +397,39 @@ Overfull \hbox (0.66159pt too wide) in paragraph at lines 55--57
  []
 
 ) (./Design.tex [2]
+File: image/fig2.eps Graphic file (type eps)
+ <image/fig2.eps>
+Overfull \hbox (0.66159pt too wide) in paragraph at lines 109--111
+ [][] 
+ []
+
+[3]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
- [3]) (./Discussion.tex
+) (./Discussion.tex
 File: image/fig3.eps Graphic file (type eps)
  <image/fig3.eps>) (./Result.tex
 File: image/fig4.eps Graphic file (type eps)
-
-<image/fig4.eps> [4]
+ <image/fig4.eps>
 File: image/fig5.eps Graphic file (type eps)
- <image/fig5.eps>
+
+<image/fig5.eps> [4]
 File: image/fig6.eps Graphic file (type eps)
  <image/fig6.eps>
 File: image/fig7.eps Graphic file (type eps)
- <image/fig7.eps>)
-(./Relatedwork.tex [5]) (./Conclusion.tex) (./Main.bbl [6]) [7
+ <image/fig7.eps>) (./Relatedwork.tex
+Underfull \vbox (badness 5519) has occurred while \output is active []
 
-] (./Main.aux) )
+ [5])
+(./Conclusion.tex [6]) (./Main.bbl) [7] (./Main.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
@@ -427,4 +443,4 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  32i,16n,39p,370b,2683s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Main.dvi (7 pages, 48452 bytes).
+Output written on Main.dvi (7 pages, 49712 bytes).

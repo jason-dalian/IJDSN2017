@@ -101,6 +101,18 @@ According to inequality (\ref{equation_2}) to get inequality constraint;
 
 \subsection{Robust LPSBL with Flip Tolerance }
 
+    \begin{figure}[!htb]
+    \centering
+ \setlength{\abovecaptionskip}{-15pt}
+                     \vspace{-5mm}  
+ %\setlength{\belowcaptionskip}{-5pt}
+    \includegraphics[height=4.5cm]{image/fig2.eps} 
+	\vspace{10mm}
+    \caption{Flip Tolerance}
+	\label{fig2}
+    \vspace{-5mm}
+    \end{figure}
+
 For the sake of presentation, until now we have described LPSBL in an ideal case where a complete and perfect node sequence can be obtained. 
 In this section, we describe how to make LPSBL work well under more realistic conditions. 
 
@@ -174,6 +186,27 @@ Therefore, the proposed LPSBL can provide the robust estimation when the problem
 % p((x_i-x_s)^2+(y_i-y_s)^2 < (x_j-x_s)^2+(y_j-y_s)^2)>\alpha
 % \end{equation}
 % where ${x_i,y_i}$ and ${x_j,y_j}$ are modelled as independent random variables following the normal distribution with the known parameter in the inequality.
+
+
+
+\subsection{Incremental LPSBL }
+
+\begin{algorithm}
+\caption{Incremental LPSBL Method}
+ \KwIn { the first two data package $pack_i$ $pack_j$ \\
+ \hspace{0.41in} newest data package $pack_k$ \\
+ }
+ \KwOut {Location of the acoustic source}
+ 
+ \textbf{Step 1:}  Initial LP problem using the first two data package $pack_i$ $pack_j$ \\
+          while (the newest data package $pack_k$ reach)\\		 
+		   $pack_k$ ($ID_k$,$Location_k$,$TOA_k$)\\
+\textbf{Step 2:}  Constructing inequality constraint according to the TOA of the newest data package : \\ 
+
+\textbf{Step 3:} Solve LP problem to get the target's location.\\
+       
+ 
+ \end{algorithm}
 
 
 \subsection{Complexity Analysis}
