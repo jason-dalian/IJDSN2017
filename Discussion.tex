@@ -1,5 +1,44 @@
 \section{Discussion}
 
+\subsection{multiple measurement}
+ Sequence flip may provide more constraints to sequence-based localization. 
+ When the position of two nodes in the node sequence is often chanced for multiple measurement, 
+it means that the distances from the acoustic source to the two node are nearly common:
+   \begin{equation} \label{12}
+ \left\| {SB - SA } \right\| \le \xi _{ij}
+  \end{equation}
+ where $\rho$ is given threshold parameter. Inequality \eqref{12} is equivalent to the following two linear constraints
+
+ \begin{eqnarray} \label{13}
+ \begin{array}{l}
+ SB-SA \le \xi _{ij}  \\
+  SA-SB \le \xi _{ij}  \\
+  \end{array}
+ \end{eqnarray}
+
+
+
+ \subsection{the uncertainty of the measurement}
+% Linear Programming with Probability Constraints - Part 1
+% Chance Constrained Programming
+% Cutting-plane
+%k-Violation linear programming
+ Considering the uncertainty of the measurement,
+ Given the following node sequence $NodeSeq( \cdots ,i,j, \cdots )$, the uncertainty of ${d_i} < {d_j}$ can be described as : 
+ \begin{equation}
+ p({d_i} < {d_j})>\alpha
+ \end{equation}
+
+  \subsection{the uncertainty of the location of anchor node}
+ Considering the uncertainty of the location of anchor node and the uncertainty of the measurement together, we have
+ \begin{equation}
+ p((x_i-x_s)^2+(y_i-y_s)^2 < (x_j-x_s)^2+(y_j-y_s)^2)>\alpha
+ \end{equation}
+ where ${x_i,y_i}$ and ${x_j,y_j}$ are modelled as independent random variables following the normal distribution with the known parameter in the inequality.
+
+
+
+
 \subsection{Time Synchronization }
 
 Like the effect of TOA detection error, time synchronization error maybe also occur flip problem when computing the node sequence in LPSBL system, then lead to localization error.
