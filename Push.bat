@@ -11,7 +11,7 @@ git commit -m '1'
 
 git remote rm origin 
 
-git remote add origin https://naigao.jin@gmail.com:Jinnaigao1977614@github.com/username/test.git
+git remote add origin https://naigao.jin@gmail.com:Jinnaigao1977614@github.com/naigao.jin@gmail.com/test.git
 
 git push origin master
 
