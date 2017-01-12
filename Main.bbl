@@ -36,6 +36,19 @@ M.~Allen, L.~Girod, R.~Newton, S.~Madden, D.~T. Blumstein, and D.~Estrin,
   ``Voxnet: An interactive, rapidly-deployable acoustic monitoring platform,''
   in \emph{IEEE/ACM IPSN'08}, 2008, pp. 371--382.
 
+\bibitem{yedavalli2008sequence}
+K.~Yedavalli and B.~Krishnamachari, ``Sequence-based localization in wireless
+  sensor networks,'' \emph{IEEE Transactions on Mobile Computing (TMC)},
+  vol.~7, no.~1, pp. 81--94, 2008.
+
+\bibitem{Boyd2004}
+S.~Boyd and L.~Vandenberghe, ``Convex optimization,'' in \emph{Cambridge
+  University Press}, 2004.
+
+\bibitem{Griva2009}
+I.~Griva, S.~Nash, and A.~Sofer, ``Linear and nonlinear optimization,'' in
+  \emph{SIAM Press}, 2009.
+
 \bibitem{wang2003acoustic}
 Q.~Wang, W.-P. Chen, R.~Zheng, K.~Lee, and L.~Sha, ``Acoustic target tracking
   using tiny wireless sensor devices,'' in \emph{IEEE/ACM IPSN'03}, 2003, pp.
@@ -64,19 +77,6 @@ Q.~Wang, R.~Zheng, A.~Tirumala, X.~Liu, and L.~Sha, ``Lightning: a hard
   real-time, fast, and lightweight low-end wireless sensor election protocol
   for acoustic event localization,'' \emph{IEEE Transactions on Mobile
   Computing (TMC)}, vol.~7, no.~5, pp. 570--584, 2008.
-
-\bibitem{yedavalli2008sequence}
-K.~Yedavalli and B.~Krishnamachari, ``Sequence-based localization in wireless
-  sensor networks,'' \emph{IEEE Transactions on Mobile Computing (TMC)},
-  vol.~7, no.~1, pp. 81--94, 2008.
-
-\bibitem{Boyd2004}
-S.~Boyd and L.~Vandenberghe, ``Convex optimization,'' in \emph{Cambridge
-  University Press}, 2004.
-
-\bibitem{Griva2009}
-I.~Griva, S.~Nash, and A.~Sofer, ``Linear and nonlinear optimization,'' in
-  \emph{SIAM Press}, 2009.
 
 \bibitem{aarabi1900fusion}
 P.~Aarabi, ``The fusion of distributed microphone arrays for sound
