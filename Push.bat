@@ -6,7 +6,7 @@ set path= %path%;C:\Users\Administrator\AppData\Local\GitHub\PortableGit_d7effa1
 echo\&echo
 
 git add -v .
-git commit -m '1'
+git commit -m '2'
 
 git push origin master
 
