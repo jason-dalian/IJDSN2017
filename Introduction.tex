@@ -2,20 +2,25 @@
 \section{Introduction}
 
 Acoustic source localization (ASL) plays an important role in a wide range of application scenarios, such
-as speaker-location-aware audio capturing in videoconferencing \cite{guo2011localising}, shooter localization in battle field \cite{sallai2011acoustic}, and wild biological acoustic studies \cite{allen2008voxnet}. 
-The traditional centralized microphone array-based solution to ASL exploit multiple synchronized microphones to simultaneously acquire multiple signals, which have some limitations with regards to distances between the microphones, and sensing range for the large-scale applications.
+as speaker-location-aware audio capturing in videoconferencing \cite{guo2011localising}, shooter localization in a battle field \cite{sallai2011acoustic}, and wild biological acoustic studies \cite{allen2008voxnet}. 
+The traditional centralized microphone array-based solution to ASL exploited multiple synchronized microphones to simultaneously acquire multiple signals, 
+which have some limitations with regard to the distances between the microphones, and sensing range for the large-scale applications.
 Wireless acoustic sensor networks (WASNs) can overcome these limitations. 
 A WASN consists of a set of wireless microphone nodes that are spatially distributed over the environment, usually in an ad-hoc fashion. 
 Due to the wireless communication capabilities, the array-size limitations disappear and the microphone nodes can physically cover a much larger area. 
-ASL in WASN is increasingly becoming feasible due to recent advances in personal portable computing devices with the rapid deployment ability.
 
-The acoustic source localization problem in sensor networks has been widely studied in the literature. 
-In previous research on distributed acoustic source localization system, generally each node just has a single element. 
-In the past few years, there has been a growing interest for acoustic nodes made of two or more synchronized microphones. 
-Aarabi, \emph{et al.}~\cite{aarabi1900fusion} deployed 10 distributed dual-microphone arrays in a room and used their data to locate three speakers. 
-Wu, \emph{et al.}~\cite{wu2012fusion} used three two-microphone arrays to locate two sound sources in a distributed way in which only the local DOA estimates are communicated among arrays.
-Most of the distributed acoustic source localization systems are range-based localization, which built on top of distance or angle measurements among sensor nodes. 
-These approaches can provide good accuracy performance, however, generally require costly hardware and have limited effective range due to energy constraints. 
+Acoustic source localization problem in sensor networks has been widely studied in the literature. 
+ASL in WASN is becoming feasible due to recent advances in personal portable computing devices with the rapid deployment ability.
+Wang, \emph{et al.} \cite{wang2003acoustic} described a system having static cluster architecture, the system experienced a problem in that the accuracy decreased when an acoustic source occurred between the clusters.
+Chen, \emph{et al.} \cite{chen2004dynamic} showed that nodes in the system did not need to recognize their cluster head, reducing the constraints on deployment of the localization system.
+Hu, et al. \cite{hu2009design} design the system based on 2-tier architecture, which experienced cost and deployment problems especially in the very large target area.
+Rabbat, \emph{et al.} \cite{rabbat2005robust} proposed a decentralized algorithm based on the distributed ML estimation technique using token ring architecture.
+Kim, \emph{et al.} \cite{kim2009locating} proposed to identify the node closest to the acoustic source, based on TOA comparisons between all nodes, thus incurring high communication cost and requiring global synchronization between all sensor nodes.
+Lightning is a method proposed in \cite{wang2008lightning} to identify the sensor closest to the acoustic source, also based on expensive broadcasting/flooding.
+
+
+Most of the distributed acoustic source localization systems are range-based localization, which are built on top of distance or angle measurements among sensor nodes. 
+These approaches can provide good localization performance, however, generally require costly hardware and have limited effective range due to energy constraints. 
 The requirement of low cost and power prohibits many range-based methods for sensor node localization, especially for large-scale deployments. 
 Yedavalli, \emph{et al.}~\cite{yedavalli2008sequence} proposed a Sequence-Based Localization (SBL) in wireless sensor networks. The heart of SBL is the division of a 2D localization space into distinct regions by the perpendicular bisectors of lines joining pairs of reference nodes (nodes with known locations).
 Each distinct region formed in this manner can be uniquely identified by a location sequence that represents the distance ranks of reference nodes to that region. 
@@ -23,8 +28,8 @@ The unknown node first determines its own location sequence based on the measure
 
 In this paper, we present a Linear Programming method to Sequence-Based Localization (LPSBL) by processing the node sequence. 
 As a range-free approach, this design applies node sequences instead of direct distance
-or TOA measurements for localization, and brings in the following two advantages: (i) node sequences features better
-robustness to the measurement noise; (ii) node sequences significantly alleviates the accuracy requirement of network level time synchronization. 
+or TOA measurements for localization, and brings in the following two advantages: (i) node sequences feature better
+robustness to the measurement noise; (ii) node sequences significantly alleviate the accuracy requirement of network level time synchronization. 
 Compared with earlier works on sequence-based localization in sensor
 networks (e.g. SBL~\cite{yedavalli2008sequence}), the primary contribution
 of this article is providing an effective and optimal approach

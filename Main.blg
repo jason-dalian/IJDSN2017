@@ -17,45 +17,45 @@ Name 2 in "I. Griva and S. Nash, and A. Sofer" has a comma at the end for entry 
 while executing---line 4821 of file IEEEtran.bst
 
 Done.
-You've used 21 entries,
+You've used 26 entries,
             4024 wiz_defined-function locations,
-            928 strings with 11168 characters,
-and the built_in function-call counts, 18783 in all, are:
-= -- 1499
-> -- 479
-< -- 182
-+ -- 267
-- -- 79
-* -- 919
-:= -- 2660
-add.period$ -- 43
-call.type$ -- 21
-change.case$ -- 21
-chr.to.int$ -- 429
-cite$ -- 21
-duplicate$ -- 1301
-empty$ -- 1498
-format.name$ -- 99
-if$ -- 4382
+            951 strings with 11932 characters,
+and the built_in function-call counts, 22848 in all, are:
+= -- 1828
+> -- 574
+< -- 217
++ -- 319
+- -- 95
+* -- 1113
+:= -- 3248
+add.period$ -- 55
+call.type$ -- 26
+change.case$ -- 26
+chr.to.int$ -- 507
+cite$ -- 26
+duplicate$ -- 1597
+empty$ -- 1841
+format.name$ -- 120
+if$ -- 5337
 int.to.chr$ -- 0
-int.to.str$ -- 21
-missing$ -- 224
-newline$ -- 86
-num.names$ -- 21
-pop$ -- 515
+int.to.str$ -- 26
+missing$ -- 275
+newline$ -- 101
+num.names$ -- 26
+pop$ -- 634
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1465
+skip$ -- 1785
 stack$ -- 0
-substring$ -- 1027
-swap$ -- 1113
-text.length$ -- 39
+substring$ -- 1220
+swap$ -- 1354
+text.length$ -- 48
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 21
+type$ -- 26
 warning$ -- 0
-while$ -- 91
-width$ -- 23
-write$ -- 229
+while$ -- 110
+width$ -- 28
+write$ -- 278
 (There were 2 error messages)

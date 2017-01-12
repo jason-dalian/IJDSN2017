@@ -1,5 +1,14 @@
+del *.bak
+del *.sav
+del *.aux
 latex Main.tex     
 bibtex Main    
 latex Main.tex
 latex Main.tex
 dvipdfm Main.dvi
+del *.bak
+del *.sav
+del *.log
+del *.dvi
+del *.asv
+del *.aux

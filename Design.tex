@@ -2,7 +2,7 @@
 \section{DESIGN}
 
 In this section, we firstly introduce the basic LPSBL method.
-After the basic LPSBL method is proposed, then we describe the robust LPSBL method in the next subsection.
+After the basic LPSBL method is proposed, we describe the robust LPSBL method in the next subsection.
 Finally, the computational complexity analysis of LPSBL is given.
 
 \subsection{Basic LPSBL}
@@ -73,7 +73,7 @@ To summarize, the LPSBL is presented in Algorithm 1.
 The input is the node sequences and anchor locations; the output is the locations of target nodes. 
 Step 1 sets the objective function of the optimization problem. 
 Step 2 uses the node sequence to get the inequality constraint. 
-Step 3 solves the LP problem to get the location of target nodes.
+Step 3 solves the LP problem to achieve the location of target nodes.
 \begin{algorithm}
 \caption{LPSBL Method}
 \KwIn { The location of $N$ smartphones \\
@@ -99,7 +99,7 @@ According to inequality (\ref{equation_2}) to get inequality constraint;
 \end{algorithm}
 
 
-\subsection{Robust LPSBL with Flip Tolerance }
+\subsection{LPSBL with Flip Tolerance }
 
     \begin{figure}[!htb]
     \centering
@@ -157,38 +157,6 @@ Therefore, the proposed LPSBL can provide the robust estimation when the problem
 
 
 
-% Sequence flip may provide more constraints to sequence-based localization. 
-% When the position of two nodes in the node sequence is often chanced for multiple measurement, 
-it means that the distances from the acoustic source to the two node are nearly common:
-  % \begin{equation} \label{12}
-% \left\| {SB - SA } \right\| \le \xi _{ij}
- % \end{equation}
-% where $\rho$ is given threshold parameter. Inequality \eqref{12} is equivalent to the following two linear constraints
-
-% \begin{eqnarray} \label{13}
-% \begin{array}{l}
- % SB-SA \le \xi _{ij}  \\
- % SA-SB \le \xi _{ij}  \\
- % \end{array}
-% \end{eqnarray}
-
-
-
-% \subsection{Robust LPSBL}
-% Linear Programming with Probability Constraints - Part 1
-% Chance Constrained Programming
-% Considering the uncertainty of the measurement,
-% Given the following node sequence $NodeSeq( \cdots ,i,j, \cdots )$, the uncertainty of ${d_i} < {d_j}$ can be described as : 
-% \begin{equation}
-% p({d_i} < {d_j})>\alpha
-% \end{equation}
-
-% Considering the uncertainty of the location of anchor node and the uncertainty of the measurement together, we have
-% \begin{equation}
-% p((x_i-x_s)^2+(y_i-y_s)^2 < (x_j-x_s)^2+(y_j-y_s)^2)>\alpha
-% \end{equation}
-% where ${x_i,y_i}$ and ${x_j,y_j}$ are modelled as independent random variables following the normal distribution with the known parameter in the inequality.
-
 
 
 \subsection{Incremental LPSBL }
@@ -211,6 +179,26 @@ it means that the distances from the acoustic source to the two node are nearly 
  \end{algorithm}
 
 
+ 
+ \subsection{Robust LPSBL }
+
+\begin{algorithm}
+\caption{Incremental LPSBL Method}
+ \KwIn { the first two data package $pack_i$ $pack_j$ \\
+ \hspace{0.41in} newest data package $pack_k$ \\
+ }
+ \KwOut {Location of the acoustic source}
+ 
+ \textbf{Step 1:}  Initial LP problem using the first two data package $pack_i$ $pack_j$ \\
+          while (the newest data package $pack_k$ reach)\\		 
+		   $pack_k$ ($ID_k$,$Location_k$,$TOA_k$)\\
+\textbf{Step 2:}  Constructing inequality constraint according to the TOA of the newest data package : \\ 
+
+\textbf{Step 3:} Solve LP problem to get the target's location.\\
+       
+ 
+ \end{algorithm}
+ 
 \subsection{Complexity Analysis}
 This section provides the complexity analysis for the proposed
 LPSBL design. It needs to be emphasized that
@@ -219,11 +207,9 @@ nodes need only to detect and report the events. Therefore,
 we only analyze the computational cost on the node sequence
 processing side, where resources are plentiful.
 
-SBL: Calculating the Spearman’s coefficient and Kendall’s Tau
-between two sequences are $O(N)$ and $O(N^2)$ operations,
-respectively. Since the location sequence table is of size
-$O(N^4)$, searching through it takes $O(N^5)$ and $O(N^6)$ operations,
-respectively~\cite{yedavalli2008sequence}.
+SBL: Calculating the Kendall’s Tau
+between two sequences is $O(N^2)$ operations. Since the location sequence table is of size
+$O(N^4)$, searching through it takes $O(N^6)$ operations~\cite{yedavalli2008sequence}.
 
 LPSBL: The complexity of low dimensional linear programming
 with L constraints is $O(L)$\cite{Griva2009}. The number of linear constraints is $N(N-1)/2$ in LPSBL,

@@ -36,30 +36,6 @@ M.~Allen, L.~Girod, R.~Newton, S.~Madden, D.~T. Blumstein, and D.~Estrin,
   ``Voxnet: An interactive, rapidly-deployable acoustic monitoring platform,''
   in \emph{IEEE/ACM IPSN'08}, 2008, pp. 371--382.
 
-\bibitem{aarabi1900fusion}
-P.~Aarabi, ``The fusion of distributed microphone arrays for sound
-  localization,'' \emph{EURASIP Journal on Advances in Signal Processing}, vol.
-  2003, no.~4, pp. 338--347, 2003.
-
-\bibitem{wu2012fusion}
-T.~Wu, L.~Sun, Q.~Cheng, and P.~K. Varshney, ``Fusion of multiple microphone
-  arrays for blind source separation and localization,'' in \emph{IEEE Sensor
-  Array and Multichannel Signal Processing Workshop (SAM'12)}, 2012, pp.
-  173--176.
-
-\bibitem{yedavalli2008sequence}
-K.~Yedavalli and B.~Krishnamachari, ``Sequence-based localization in wireless
-  sensor networks,'' \emph{IEEE Transactions on Mobile Computing (TMC)},
-  vol.~7, no.~1, pp. 81--94, 2008.
-
-\bibitem{Boyd2004}
-S.~Boyd and L.~Vandenberghe, ``Convex optimization,'' in \emph{Cambridge
-  University Press}, 2004.
-
-\bibitem{Griva2009}
-I.~Griva, S.~Nash, and A.~Sofer, ``Linear and nonlinear optimization,'' in
-  \emph{SIAM Press}, 2009.
-
 \bibitem{wang2003acoustic}
 Q.~Wang, W.-P. Chen, R.~Zheng, K.~Lee, and L.~Sha, ``Acoustic target tracking
   using tiny wireless sensor devices,'' in \emph{IEEE/ACM IPSN'03}, 2003, pp.
@@ -88,6 +64,30 @@ Q.~Wang, R.~Zheng, A.~Tirumala, X.~Liu, and L.~Sha, ``Lightning: a hard
   real-time, fast, and lightweight low-end wireless sensor election protocol
   for acoustic event localization,'' \emph{IEEE Transactions on Mobile
   Computing (TMC)}, vol.~7, no.~5, pp. 570--584, 2008.
+
+\bibitem{yedavalli2008sequence}
+K.~Yedavalli and B.~Krishnamachari, ``Sequence-based localization in wireless
+  sensor networks,'' \emph{IEEE Transactions on Mobile Computing (TMC)},
+  vol.~7, no.~1, pp. 81--94, 2008.
+
+\bibitem{Boyd2004}
+S.~Boyd and L.~Vandenberghe, ``Convex optimization,'' in \emph{Cambridge
+  University Press}, 2004.
+
+\bibitem{Griva2009}
+I.~Griva, S.~Nash, and A.~Sofer, ``Linear and nonlinear optimization,'' in
+  \emph{SIAM Press}, 2009.
+
+\bibitem{aarabi1900fusion}
+P.~Aarabi, ``The fusion of distributed microphone arrays for sound
+  localization,'' \emph{EURASIP Journal on Advances in Signal Processing}, vol.
+  2003, no.~4, pp. 338--347, 2003.
+
+\bibitem{wu2012fusion}
+T.~Wu, L.~Sun, Q.~Cheng, and P.~K. Varshney, ``Fusion of multiple microphone
+  arrays for blind source separation and localization,'' in \emph{IEEE Sensor
+  Array and Multichannel Signal Processing Workshop (SAM'12)}, 2012, pp.
+  173--176.
 
 \bibitem{canclini2013acoustic}
 A.~Canclini, E.~Antonacci, A.~Sarti, and S.~Tubaro, ``Acoustic source
@@ -126,5 +126,30 @@ T.~He, C.~Huang, B.~M. Blum, J.~A. Stankovic, and T.~Abdelzaher, ``Range-free
 \bibitem{zhong2009tracking}
 Z.~Zhong, T.~Zhu, D.~Wang, and T.~He, ``Tracking with unreliable node
   sequences,'' in \emph{IEEE INFOCOM'09}, 2009, pp. 1215--1223.
+
+\bibitem{zhong2009achieving}
+Z.~Zhong and T.~He, ``Achieving range-free localization beyond connectivity,''
+  in \emph{ACM SenSys'09}, 2009, pp. 281--294.
+
+\bibitem{guo2009find}
+S.~Guo, Z.~Zhong, and T.~He, ``Find: faulty node detection for wireless sensor
+  networks,'' in \emph{Proceedings of the 7th ACM conference on embedded
+  networked sensor systems}.\hskip 1em plus 0.5em minus 0.4em\relax ACM, 2009,
+  pp. 253--266.
+
+\bibitem{shu2015toc}
+Y.~Shu, P.~Cheng, Y.~Gu, J.~Chen, and T.~He, ``Toc: Localizing wireless
+  rechargeable sensors with time of charge,'' \emph{ACM Transactions on Sensor
+  Networks (TOSN)}, vol.~11, no.~3, p.~44, 2015.
+
+\bibitem{zhong2012wireless}
+Z.~Zhong and T.~He, ``Wireless sensor node localization by multisequence
+  processing,'' \emph{ACM Transactions on Embedded Computing Systems (TECS)},
+  vol.~11, no.~1, p.~3, 2012.
+
+\bibitem{yang2013freeloc}
+S.~Yang, P.~Dessai, M.~Verma, and M.~Gerla, ``Freeloc: Calibration-free
+  crowdsourced indoor localization,'' in \emph{INFOCOM, 2013 Proceedings
+  IEEE}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2013, pp. 2481--2489.
 
 \end{thebibliography}
