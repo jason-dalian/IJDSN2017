@@ -23,18 +23,17 @@
 
 \bibitem{guo2011localising}
 Y.~Guo and M.~Hazas, ``Localising speech, footsteps and other sounds using
-  resource-constrained devices,'' in \emph{IEEE/ACM IPSN'11}, 2011, pp.
-  330--341.
+  resource-constrained devices,'' in \emph{IEEE/ACM IPSN}, 2011, pp. 330--341.
 
 \bibitem{sallai2011acoustic}
 J.~Sallai, A.~L{\'e}deczi, and P.~V{\"o}lgyesi, ``Acoustic shooter localization
   with a minimal number of single-channel wireless sensor nodes,'' in \emph{ACM
-  SenSys'11}, 2011, pp. 96--107.
+  SenSys}, 2011, pp. 96--107.
 
 \bibitem{allen2008voxnet}
 M.~Allen, L.~Girod, R.~Newton, S.~Madden, D.~T. Blumstein, and D.~Estrin,
   ``Voxnet: An interactive, rapidly-deployable acoustic monitoring platform,''
-  in \emph{IEEE/ACM IPSN'08}, 2008, pp. 371--382.
+  in \emph{IEEE/ACM IPSN}, 2008, pp. 371--382.
 
 \bibitem{yedavalli2008sequence}
 K.~Yedavalli and B.~Krishnamachari, ``Sequence-based localization in wireless
@@ -66,7 +65,7 @@ W.~Hu, N.~Bulusu, C.~T. Chou, S.~Jha, A.~Taylor, and V.~N. Tran, ``Design and
 
 \bibitem{rabbat2005robust}
 M.~Rabbat, R.~Nowak, and J.~A. Bucklew, ``Robust decentralized source
-  localization via averaging.'' in \emph{IEEE ICASSP'05}, 2005, pp. 1057--1060.
+  localization via averaging,'' in \emph{IEEE ICASSP'05}, 2005, pp. 1057--1060.
 
 \bibitem{kim2009locating}
 Y.~Kim, J.~Ahn, and H.~Cha, ``Locating acoustic events based on large-scale
@@ -105,7 +104,7 @@ A.~Canclini, P.~Bestagini, F.~Antonacci, M.~Compagnoni, A.~Sarti, and
 \bibitem{yedavalli2005ecolocation}
 K.~Yedavalli, B.~Krishnamachari, S.~Ravula, and B.~Srinivasan, ``Ecolocation: a
   sequence based technique for rf localization in wireless sensor networks,''
-  in \emph{IEEE/ACM IPSN'05}, 2005, p.~38.
+  in \emph{IEEE/ACM IPSN}, 2005, p.~38.
 
 \bibitem{chakrabarty2002grid}
 K.~Chakrabarty, S.~S. Iyengar, H.~Qi, and E.~Cho, ``Grid coverage for
@@ -119,23 +118,21 @@ S.~Ray, D.~Starobinski, A.~Trachtenberg, and R.~Ungrangsi, ``Robust location
 
 \bibitem{he2003range}
 T.~He, C.~Huang, B.~M. Blum, J.~A. Stankovic, and T.~Abdelzaher, ``Range-free
-  localization schemes for large scale sensor networks,'' in
-  \emph{MOBICOM'03}.\hskip 1em plus 0.5em minus 0.4em\relax ACM, 2003, pp.
-  81--95.
+  localization schemes for large scale sensor networks,'' in \emph{ACM
+  MOBICOM}, 2003, pp. 81--95.
 
 \bibitem{zhong2009tracking}
 Z.~Zhong, T.~Zhu, D.~Wang, and T.~He, ``Tracking with unreliable node
-  sequences,'' in \emph{IEEE INFOCOM'09}, 2009, pp. 1215--1223.
+  sequences,'' in \emph{IEEE INFOCOM}, 2009, pp. 1215--1223.
 
-\bibitem{zhong2009achieving}
-Z.~Zhong and T.~He, ``Achieving range-free localization beyond connectivity,''
-  in \emph{ACM SenSys'09}, 2009, pp. 281--294.
+\bibitem{zhong2011rsd}
+Z.~Zhong and T.~He, ``Rsd: a metric for achieving range-free localization
+  beyond connectivity,'' \emph{IEEE Transactions on Parallel and Distributed
+  Systems (TPDS)}, vol.~22, no.~11, pp. 1943--1951, 2011.
 
 \bibitem{guo2009find}
 S.~Guo, Z.~Zhong, and T.~He, ``Find: faulty node detection for wireless sensor
-  networks,'' in \emph{Proceedings of the 7th ACM conference on embedded
-  networked sensor systems}.\hskip 1em plus 0.5em minus 0.4em\relax ACM, 2009,
-  pp. 253--266.
+  networks,'' in \emph{ACM Sensys}, 2009, pp. 253--266.
 
 \bibitem{shu2015toc}
 Y.~Shu, P.~Cheng, Y.~Gu, J.~Chen, and T.~He, ``Toc: Localizing wireless
@@ -149,7 +146,7 @@ Z.~Zhong and T.~He, ``Wireless sensor node localization by multisequence
 
 \bibitem{yang2013freeloc}
 S.~Yang, P.~Dessai, M.~Verma, and M.~Gerla, ``Freeloc: Calibration-free
-  crowdsourced indoor localization,'' in \emph{INFOCOM, 2013 Proceedings
-  IEEE}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2013, pp. 2481--2489.
+  crowdsourced indoor localization,'' in \emph{IEEE INFOCOM}.\hskip 1em plus
+  0.5em minus 0.4em\relax IEEE, 2013, pp. 2481--2489.
 
 \end{thebibliography}
