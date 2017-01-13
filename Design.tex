@@ -161,6 +161,11 @@ Therefore, the proposed LPSBL can provide the robust estimation when the problem
 
 \subsection{Incremental LPSBL }
 
+The data transmitted from the sensor node reach the the server in sequence in WSN.
+The basic idea of the proposed incremental LPSBL is to ultilize the available constraints to solve the linear
+program.
+Once the new data come, the proposed incremental LPSBL add the new constraints to refresh the location of the acoustic source by solving a
+new linear program.
 \begin{algorithm}
 \caption{Incremental LPSBL Method}
  \KwIn { the first two data package $pack_i$ $pack_j$ \\
@@ -180,10 +185,15 @@ Therefore, the proposed LPSBL can provide the robust estimation when the problem
 
 
  
- \subsection{Robust LPSBL }
+ \subsection{Robust LPSBL}
+ 
+ The constraint is tight for AC, CB and BD, can contribute more to the localization accuracy. 
+ However, compared with the constraint of AD, the the constraint of AC is subject to flip.
+ Given the $NodeSeq (A C B D)$, we add the constraint of AD firstly, then AB and CD,  the constraint of AC, CB and BD is added finally.
+ After add the new constraint, once the optimal solution is not given, we just discard the constraint and keep the optimum before.
 
 \begin{algorithm}
-\caption{Incremental LPSBL Method}
+\caption{Robust LPSBL}
  \KwIn { the first two data package $pack_i$ $pack_j$ \\
  \hspace{0.41in} newest data package $pack_k$ \\
  }
