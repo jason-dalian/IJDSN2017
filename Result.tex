@@ -33,7 +33,6 @@ Error Statistics	 &  RMSE \\
 
 The results of simulation evaluation are as following:
 
-
 \textbf{1) Impact of the number of anchors:}
  In this experiment, we investigate the localization error and number of anchors with a different number of anchors from 10 to 40 in steps of 2. 
  We run the simulation with the TOA error is 0.1ms, and other simulation parameters are default. 
@@ -54,32 +53,30 @@ Fig. \ref{fig4} also shows that the localization error of the LPSBL method is ap
              \label{fig4}
         \end{figure}	
 		
-\textbf{2) Impact of the location error:}
- In this experiment, we compare the two methods for different location errors of anchors. 
- In Fig. \ref{fig5}, we choose the location error with the range from 0 to 0.4m in step of 0.02m for the two methods. 
- Fig. \ref{fig5} indicates the location error of anchors has an effect on the positioning results. 
- The proposed LPSBL method are more accurate than the SBL method. 
- For the SBL method, the positioning error changes obviously as location error increases in Fig. \ref{fig5}. 
- However, as demonstrated in Fig. \ref{fig5}, the positioning error of LPSBL varies little, which demonstrates the LPSBL method is the most robust to the node location error.
+\textbf{2) Impact of the position error:}
+ In this experiment, we compare the two methods for different position errors of anchors. 
+ In Fig. \ref{fig5}, we choose the position error with the range from 0 to 0.4m in step of 0.02m for the two methods. 
+ Fig. \ref{fig5} indicates the position error of anchors has an effect on the localization results. 
+ For the both methods, the localization error increases as position error increases in Fig. \ref{fig5}. 
+ %However, as demonstrated in Fig. \ref{fig5}, the localization error of LPSBL varies little, which demonstrates the LPSBL method is the most robust to the node position error.
   \begin{figure}[htb]
           %  \centering
 		   \vspace{-25mm}
 			 \includegraphics[height=5.0cm,width=7.0cm]{image/fig5.eps}
             \vspace{25mm}
-            \caption{Localization Error vs. Node Location Error}
+            \caption{Localization Error vs. Node position Error}
              \vspace{-5mm}
              \label{fig5}
         \end{figure}
 
 \textbf{3) Impact of the TOA measurement error:}
-In this experiment, we perform the impact of the TOA error of anchors for the two methods being compared with the range from 0 to 2ms in steps of 0.1ms. 
+In this experiment, we discusses the impact of the TOA error of anchors for the two methods being compared with the range from 0 to 2ms in steps of 0.1ms. 
 Other simulation parameters keep default. 
-We can guess that the TOA measurement error may influence the localization accuracy. 
-Fig. \ref{fig6} confirms it. As it is shown in Fig. \ref{fig6}, the localization error of the  two methods is increasing as the TOA error growth. 
-Thus, we can determine the speculation that the error of TOA measurement can influence the localization accuracy is true. 
-Also, the LPSBL method has a better result than the SBL method. 
-%The Robust LPSBL method get the best experimental result. 
-It is shown in Fig. \ref{fig6}, the localization error of our LPSBL method is stable no matter which degree the TOA error is, which means that the LPSBL method can localize the target node with little error when TOA error is not too big.
+Figure \ref{fig6} reports the average localization error of both localization methods. 
+Results clearly show a significant increases of the localization error as increases of TOA measurement error.
+In conclusion one can observe that the error of TOA measurement has significant influence on the localization accuracy. 
+%Also, the LPSBL method has a better result than the SBL method. 
+%It is shown in Fig. \ref{fig6}, the localization error of our LPSBL method is stable no matter which degree the TOA error is, which means that the LPSBL method can localize the target node with little error when TOA error is not too big.
   \begin{figure}[htb]       
            % \centering
 			\vspace{-15mm}
@@ -90,11 +87,11 @@ It is shown in Fig. \ref{fig6}, the localization error of our LPSBL method is st
              \label{fig6}
         \end{figure}
 		
- % \textbf{Summary:} From the above simulations, considering the different factors, including the number of anchors, the node location error and TOA measurement error of the anchors, we can get the following conclusions:
+ % \textbf{Summary:} From the above simulations, considering the different factors, including the number of anchors, the node position error and TOA measurement error of the anchors, we can get the following conclusions:
 
  % (1) With increasing number of the number of anchors, localization errors decrease for both methods, and LPSBL has better localization performance;
 
- % (2) The error of node location can impact the localization error, the proposed LPSBL method is more robust to the error of node location than SBL method;
+ % (2) The error of node position can impact the localization error, the proposed LPSBL method is more robust to the error of node position than SBL method;
  
  % (3) The TOA measurement error has a major impact on the localization accuracy, and the proposed LPSBL method can achieve better localization performance.
 
