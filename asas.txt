@@ -1,0 +1,86 @@
+@inproceedings{zhong2009achieving,
+  title={Achieving range-free localization beyond connectivity},
+  author={Zhong, Ziguo and He, Tian},
+  booktitle={ACM SenSys'09},
+  pages={281--294},
+  year={2009},
+}
+
+
+@inproceedings{Doherty2001convex,
+  title={Convex position estimation in wireless sensor networks},
+  author={L. Doherty and K. S. J. Pister and L. E. Ghaoui,},
+  booktitle={IEEE INFOCOM},
+  pages={1655–1663},
+  year={2001},
+}
+
+6
+@inproceedings{pertila2011closed,
+  title={Closed-form self-localization of asynchronous microphone arrays},
+  author={Pertila, P and Mieskolainen, Mikael and Hamalainen, MS},
+  booktitle={IEEE Joint Workshop on Hands-free Speech Communication and Microphone Arrays (HSCMA'11)},
+  pages={139--144},
+  year={2011},
+}
+
+7
+@article{ward2003particle,
+  title={Particle filtering algorithms for tracking an acoustic source in a reverberant environment},
+  author={Ward, Darren B and Lehmann, Eric A and Williamson, Robert C},
+  journal={IEEE Transactions on Speech and Audio Processing},
+  volume={11},
+  number={6},
+  pages={826--836},
+  year={2003},
+}
+
+8
+@inproceedings{sheng2004sequential,
+  title={Sequential acoustic energy based source localization using particle filter in a distributed sensor network},
+  author={Sheng, Xiaohong and Hu, Yu Hen},
+  booktitle={IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP'04)},
+  volume={3},
+  pages={iii--972},
+  year={2004},
+}
+
+9 
+@inproceedings{omologo1994acoustic,
+  title={Acoustic event localization using a crosspower-spectrum phase based technique},
+  author={Omologo, Maurizio and Svaizer, Piergiorgio},
+  booktitle={IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP'1994)},
+  volume={2},
+  pages={II--273},
+  year={1994},
+}
+
+10
+@article{cobos2011modified,
+  title={A modified SRP-PHAT functional for robust real-time sound source localization with scalable spatial sampling},
+  author={Cobos, Maximo and Marti, Amparo and Lopez, Jose J},
+  journal={IEEE Signal Processing Letters},
+  volume={18},
+  number={1},
+  pages={71--74},
+  year={2011},
+}
+
+11 
+@inproceedings{rabinkin1996dsp,
+  title={DSP implementation of source location using microphone arrays},
+  author={Rabinkin, Daniel V and Renomeron, Richard J and Dahl, AJ and French, Joseph C and Flanagan, James L and Bianchi, Mike},
+  booktitle={SPIE International Symposium on Optical Science, Engineering, and Instrumentation},
+  pages={88--99},
+  year={1996},
+}
+
+12
+@inproceedings{do2007real,
+  title={A real-time SRP-PHAT source location implementation using stochastic region contraction (SRC) on a large-aperture microphone array},
+  author={Do, Hoang and Silverman, Harvey F and Yu, Ying},
+  booktitle={IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP'07)},
+  volume={1},
+  pages={I--121},
+  year={2007},
+}

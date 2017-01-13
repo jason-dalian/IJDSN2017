@@ -2,6 +2,7 @@
 del *.bak
 del *.sav
 del *.aux
+
 latex Main.tex     
 bibtex Main    
 latex Main.tex
@@ -17,6 +18,7 @@ del *.log
 del *.dvi
 del *.asv
 del *.aux
+del *.blg
 
 @echo off
 @title windows git
