@@ -106,7 +106,7 @@ According to inequality (\ref{equation_2}) to get inequality constraint;
  \setlength{\abovecaptionskip}{-15pt}
                      \vspace{-5mm}  
  %\setlength{\belowcaptionskip}{-5pt}
-    \includegraphics[height=4.5cm]{image/fig2.eps} 
+    \includegraphics[height=4.5cm]{image/flip.eps} 
 	\vspace{10mm}
     \caption{Flip Tolerance}
 	\label{fig2}
@@ -186,11 +186,17 @@ new linear program.
  
  \subsection{Robust LPSBL}
  
- The constraint is tight for AC, CB and BD, can contribute more to the localization accuracy. 
+Given the $NodeSeq (A C B D)$, the constraint is tight for AC, CB and BD, can contribute more to the localization accuracy. 
  However, compared with the constraint of AD, the the constraint of AC is subject to flip.
- Given the $NodeSeq (A C B D)$, we add the constraint of AD firstly, then AB and CD,  the constraint of AC, CB and BD is added finally.
+   % Given the following node sequence $NodeSeq( \cdots ,i,j, \cdots )$, the uncertainty of ${d_i} < {d_j}$ can be described as : 
+  % \begin{equation}
+  % p({d_i} < {d_j})>\alpha
+  % \end{equation}
+ We add the constraint of AD firstly, then process the constraints of AB and CD,  finally, the constraints of AC, CB and BD is added.
  After add the new constraint, once the optimal solution is not given, we just discard the constraint and keep the optimum before.
 
+
+ 
 \begin{algorithm}
 \caption{Robust LPSBL}
  \KwIn { the first two data package $pack_i$ $pack_j$ \\
