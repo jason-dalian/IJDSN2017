@@ -130,9 +130,10 @@ Z.~Zhong and T.~He, ``Rsd: a metric for achieving range-free localization
   beyond connectivity,'' \emph{IEEE Transactions on Parallel and Distributed
   Systems (TPDS)}, vol.~22, no.~11, pp. 1943--1951, 2011.
 
-\bibitem{guo2009find}
-S.~Guo, Z.~Zhong, and T.~He, ``Find: faulty node detection for wireless sensor
-  networks,'' in \emph{ACM Sensys}, 2009, pp. 253--266.
+\bibitem{guo2014detecting}
+S.~Guo, H.~Zhang, Z.~Zhong, J.~Chen, Q.~Cao, and T.~He, ``Detecting faulty
+  nodes with data errors for wireless sensor networks,'' \emph{ACM Transactions
+  on Sensor Networks (TOSN)}, vol.~10, no.~3, p.~40, 2014.
 
 \bibitem{shu2015toc}
 Y.~Shu, P.~Cheng, Y.~Gu, J.~Chen, and T.~He, ``Toc: Localizing wireless
@@ -146,7 +147,7 @@ Z.~Zhong and T.~He, ``Wireless sensor node localization by multisequence
 
 \bibitem{yang2013freeloc}
 S.~Yang, P.~Dessai, M.~Verma, and M.~Gerla, ``Freeloc: Calibration-free
-  crowdsourced indoor localization,'' in \emph{IEEE INFOCOM}.\hskip 1em plus
-  0.5em minus 0.4em\relax IEEE, 2013, pp. 2481--2489.
+  crowdsourced indoor localization,'' in \emph{IEEE INFOCOM}, 2013, pp.
+  2481--2489.
 
 \end{thebibliography}

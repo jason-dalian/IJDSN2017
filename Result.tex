@@ -42,7 +42,7 @@ The results of simulation evaluation are as following:
  We can speculate that with more anchors, the whole area will be divided into smaller parts, 
  thus more accurate localization estimation should be achieved in the LPSBL method. 
 Fig. \ref{fig4} confirms our expectation. As shown in Fig. \ref{fig4}, with the number of anchors increases, localization error for both  methods are down slowly. 
-Fig. \ref{fig4} also shows that the localization error caused by the LPSBL method is smaller than the SBL method when the number of anchor node is less.
+Fig. \ref{fig4} also shows that the localization error of the LPSBL method is approximate to the SBL method when the number of anchor node is larger.
   \begin{figure}[htb]
             \setlength{\abovecaptionskip}{0pt}
            % \centering
@@ -50,7 +50,7 @@ Fig. \ref{fig4} also shows that the localization error caused by the LPSBL metho
            		 \includegraphics[height=5.0cm,width=7.0cm]{image/fig4.eps}
             \vspace{15mm}
             \caption{Localization Error vs. Number of Anchors}
-             \vspace{-7mm}
+             \vspace{-5mm}
              \label{fig4}
         \end{figure}	
 		
@@ -89,6 +89,7 @@ It is shown in Fig. \ref{fig6}, the localization error of our LPSBL method is st
              \vspace{-5mm}
              \label{fig6}
         \end{figure}
+		
  \textbf{Summary:} From the above simulations, considering the different factors, including the number of anchors, the node location error and TOA measurement error of the anchors, we can get the following conclusions:
 
  (1) With increasing number of the number of anchors, localization errors decrease for both methods, and LPSBL has better localization performance;
