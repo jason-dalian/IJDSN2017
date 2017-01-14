@@ -16,7 +16,7 @@
 \usepackage{caption3}
 \usepackage{bm} %%公式加粗
 \usepackage[justification=centering]{caption}
-
+\usepackage{fancyhdr}
 
 
 
@@ -34,21 +34,20 @@ Email: ngjin@dlut.edu.cn, lei.wang@ieee.org}
 
 % make the title area
 %\maketitle
+%\thispagestyle{empty}
+%\pagestyle{empty}
 %\thispagestyle{plain}
-\pagestyle{plain}
-\maketitle
+%\maketitle
+
 
 
 \begin{abstract}
-%\boldmath
-
 Acoustic source localization in sensor network is a challenging task because of severe constraints on cost, energy, and effective range of sensor devices. 
 To overcome these limitations in existing solutions, this paper formally describes, designs, implements, and evaluates a Linear Programming method to Sequence-Based Localization, i.e., LPSBL, in distributed smartphone networks. 
 The localization space can be divided into distinct regions, and each region can be uniquely identified by the node sequence that represents the ranking of distances from the reference nodes to that region. 
 The key idea behind LPSBL is to turn the localization problem into linear feasibility problem by processing the node sequence. 
 The proposed design is evaluated through theoretical analysis, extensive simulations, and physical experiments (an indoor test-bed with 30 smartphone nodes). 
 Evaluation results demonstrate that LPSBL can effectively localize the acoustic source with good robustness.
-
 \end{abstract}
 
 \begin{IEEEkeywords}
