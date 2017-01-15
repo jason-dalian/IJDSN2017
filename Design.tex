@@ -179,17 +179,19 @@ new linear program.
 
 
  
- \subsection{Robust LPSBL}
+ \subsection{Simplified LPSBL}
  
-Given the $NodeSeq (A C B D)$, the constraint is tight for AC, CB and BD, can contribute more to the localization accuracy. 
- However, compared with the constraint of AD, the the constraint of AC is subject to flip.
+% However, compared with the constraint of AD, the the constraint of AC is subject to flip.
    % Given the following node sequence $NodeSeq( \cdots ,i,j, \cdots )$, the uncertainty of ${d_i} < {d_j}$ can be described as : 
   % \begin{equation}
   % p({d_i} < {d_j})>\alpha
   % \end{equation}
- We add the constraint of AD firstly, then process the constraints of AB and CD,  finally, the constraints of AC, CB and BD is added.
- After add the new constraint, once the optimal solution is not given, we just discard the constraint and keep the optimum before.
-
+  
+  In this section， we consider the effect of different constraints among $N(N - 1)/2$ for the proposed LPSBL system.     
+  We observes that the constraints is tight for AC, CB and BD in the $NodeSeq (A C B D)$.  
+  Compared with non-adjacent nodes in the node sequence, the constraint constructed by the two adjacent nodes can contribute more to the localization accuracy. 
+  Given the following node sequence $NodeSeq( \cdots ,i,j, \cdots )$ of $N$ nodes, 
+  We present a simplified LPSBL that only uses the adjacent nodes in the node sequence to construct the $N-1$ constraint.
 
  
 \begin{algorithm}
