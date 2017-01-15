@@ -94,6 +94,76 @@ According to inequality (\ref{equation_2}) to get inequality constraint;
 \end{algorithm}
 
 
+ \subsection{Simplified LPSBL}
+ 
+% However, compared with the constraint of AD, the the constraint of AC is subject to flip.
+   % Given the following node sequence $NodeSeq( \cdots ,i,j, \cdots )$, the uncertainty of ${d_i} < {d_j}$ can be described as : 
+  % \begin{equation}
+  % p({d_i} < {d_j})>\alpha
+  % \end{equation}
+  
+  In this section， we consider the effect of different constraints among $N(N - 1)/2$ for the proposed LPSBL system.     
+  We observes that the constraints is tight for AC, CB and BD in the $NodeSeq (A C B D)$.  
+  Compared with non-adjacent nodes in the node sequence, the constraint constructed by the two adjacent nodes can contribute more to the localization accuracy. 
+  Given the following node sequence $NodeSeq( \cdots ,i,j, \cdots )$ of $N$ nodes, 
+  We present a simplified LPSBL that only uses the adjacent nodes in the node sequence to construct the $N-1$ constraint.
+
+\begin{algorithm}
+\caption{Simplified LPSBL}
+\KwIn { The position of $N$ nodes \\
+\hspace{0.41in} The node sequence of the acoustic source for\\
+\hspace{0.41in} $N$ reference nodes
+}
+\KwOut {Position of the acoustic source}
+
+\textbf{Step 1:} Setting objective function: setting $\bf{c} \leftarrow \bf{0}$;
+
+\textbf{Step 2:} Constructing inequality constraint: \\ 
+\hspace{0.41in} setting $\bm{A}$ and $\bm{b}$ by processing the node sequence;\\
+\For{$i \leftarrow 1$ \textbf{to} $N-1$}
+{
+\For{$j \leftarrow i+1$}
+{
+According to inequality (\ref{equation_2}) to get inequality constraint;
+}
+}
+
+\textbf{Step 3:} Solve LP problem to get the target's position.
+
+\end{algorithm}
+
+
+
+
+
+
+\subsection{Incremental LPSBL }
+
+The data transmitted from the sensor node reach the the server in sequence in WSN.
+The basic idea of the proposed incremental LPSBL is to ultilize the available constraints to solve the linear program.
+Once the new data come, the proposed incremental LPSBL add the new constraints to refresh the location of the acoustic source by solving a
+new linear program.
+\begin{algorithm}
+\caption{Incremental LPSBL Method}
+ \KwIn { the first two data package $pack_i$ $pack_j$ \\
+ \hspace{0.41in} newest data package $pack_k$ \\
+ }
+ \KwOut {Location of the acoustic source}
+ 
+ \textbf{Step 1:}  Initial LP problem using the first two data package $pack_i$ $pack_j$ \\
+          while (the newest data package $pack_k$ reach)\\		 
+		   $pack_k$ ($ID_k$,$Location_k$,$TOA_k$)\\
+\textbf{Step 2:}  Constructing inequality constraint according to the TOA of the newest data package : \\ 
+
+\textbf{Step 3:} Solve LP problem to get the target's location.\\
+       
+ 
+ \end{algorithm}
+
+
+ 
+
+
 \subsection{LPSBL with Flip Tolerance }
 
     \begin{figure}[!htb]
@@ -147,69 +217,6 @@ where the objective function of optimization problem is the total amount of all 
 In the optimization problem expressed by the equation \eqref{5}, the problem of inequality violations can be solved by introducing a slack variable for each inequality \cite{Boyd2004}.
 Therefore, the proposed LPSBL can provide the robust estimation when the problem of sequence flip occurs.
 
-
-
-
-
-
-
-
-\subsection{Incremental LPSBL }
-
-The data transmitted from the sensor node reach the the server in sequence in WSN.
-The basic idea of the proposed incremental LPSBL is to ultilize the available constraints to solve the linear program.
-Once the new data come, the proposed incremental LPSBL add the new constraints to refresh the location of the acoustic source by solving a
-new linear program.
-\begin{algorithm}
-\caption{Incremental LPSBL Method}
- \KwIn { the first two data package $pack_i$ $pack_j$ \\
- \hspace{0.41in} newest data package $pack_k$ \\
- }
- \KwOut {Location of the acoustic source}
- 
- \textbf{Step 1:}  Initial LP problem using the first two data package $pack_i$ $pack_j$ \\
-          while (the newest data package $pack_k$ reach)\\		 
-		   $pack_k$ ($ID_k$,$Location_k$,$TOA_k$)\\
-\textbf{Step 2:}  Constructing inequality constraint according to the TOA of the newest data package : \\ 
-
-\textbf{Step 3:} Solve LP problem to get the target's location.\\
-       
- 
- \end{algorithm}
-
-
- 
- \subsection{Simplified LPSBL}
- 
-% However, compared with the constraint of AD, the the constraint of AC is subject to flip.
-   % Given the following node sequence $NodeSeq( \cdots ,i,j, \cdots )$, the uncertainty of ${d_i} < {d_j}$ can be described as : 
-  % \begin{equation}
-  % p({d_i} < {d_j})>\alpha
-  % \end{equation}
-  
-  In this section， we consider the effect of different constraints among $N(N - 1)/2$ for the proposed LPSBL system.     
-  We observes that the constraints is tight for AC, CB and BD in the $NodeSeq (A C B D)$.  
-  Compared with non-adjacent nodes in the node sequence, the constraint constructed by the two adjacent nodes can contribute more to the localization accuracy. 
-  Given the following node sequence $NodeSeq( \cdots ,i,j, \cdots )$ of $N$ nodes, 
-  We present a simplified LPSBL that only uses the adjacent nodes in the node sequence to construct the $N-1$ constraint.
-
- 
-\begin{algorithm}
-\caption{Robust LPSBL}
- \KwIn { the first two data package $pack_i$ $pack_j$ \\
- \hspace{0.41in} newest data package $pack_k$ \\
- }
- \KwOut {Location of the acoustic source}
- 
- \textbf{Step 1:}  Initial LP problem using the first two data package $pack_i$ $pack_j$ \\
-          while (the newest data package $pack_k$ reach)\\		 
-		   $pack_k$ ($ID_k$,$Location_k$,$TOA_k$)\\
-\textbf{Step 2:}  Constructing inequality constraint according to the TOA of the newest data package : \\ 
-
-\textbf{Step 3:} Solve LP problem to get the target's location.\\
-       
- 
- \end{algorithm}
  
 \subsection{Complexity Analysis}
 This section provides the complexity analysis for the proposed
