@@ -1,11 +1,15 @@
 \section{EVALUATION }
 \label{section:results}
+This section presents a thorough evaluation of our sequence-based localization based on linear programming (LPSBL).
+In the first half of this section, we evaluate the parameters that affect the localization performance of LPSBL.
+In the second half, test-bed experiment is carried out in indoor environments to vrified the system performance.
 
 \subsection{Simulation}
-In this section, we try to simulate our sequence-based localization technique based on linear programming (LPSBL) with SBL method using MATLAB. 
-In the simulation, we randomly generate a lot of smartphones in a $10m \times 10m$ area. 
+We develop a Monte Carlo simulator to evaluate the localization performance under different conditions.
+In the simulation, the nodes are randomly depolyed in a field of $10m \times 10m$. 
 Considering the impact of the uncertainty of node position and TOA detection, we add a certain amount of node location error and TOA measure error in all the simulations.
-All the statistics are running more than 100 times for high confidence, and reported by RMSE figure. Table 1 illustrates the default simulation setup parameters.
+All the statistics are running more than 100 times for high confidence, and reported by RMSE figure. 
+Table 1 illustrates the default simulation setup parameters.
 
 \begin{table} \normalsize
 \caption {\textbf{Default configuration parameter}} %title of the table

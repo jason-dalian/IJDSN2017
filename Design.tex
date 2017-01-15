@@ -51,38 +51,36 @@ x_n^2-x_{n-1}^2+y_n^2-y_{n-1}^2
 \]
 
 
-The problem of finding a feasible solution to a system of linear inequalities is a linear programming
-problem in which the objective function is zero. 
+The problem of finding a feasible solution to a system of linear inequalities can be described as a linear programming problem in which the objective function is zero. 
 We can find a solution to this feasibility program only if there is an embedding satisfying all of the constraints. 
 We utilize the nodes sequences to set the inequality constraint.
 The bound constraint in the linear programming problem is set based on the size of the network deployment area.
-
-Describing the problem of sensor node localization in the standard form of linear programming as
+Describing the problem of sequence-based localization in the standard form of linear programming as
  \begin{equation} \label{6}
  \quad \quad \bm {\hat X_s} = \min {\bm{c^T}\bm{X_s}}
   \end{equation}
 \begin{align*}
- s.t. \   \bm {{A}{X_s}} &\le \bm {b} \\
+ s.t. \   \bm {{A}{X_s}} &\le \bm {b} 
 \end{align*}
 where $\bm {c}$ is zero vector.
 
 To summarize, the LPSBL is presented in Algorithm 1. 
-The input is the node sequences and anchor locations; the output is the locations of target nodes. 
+The input is the node sequences and locations of anchor; the output is the position of the acoustic source. 
 Step 1 sets the objective function of the optimization problem. 
-Step 2 uses the node sequence to get the inequality constraint. 
-Step 3 solves the LP problem to achieve the location of target nodes.
+Step 2 uses the node sequence to construct the inequality constraint. 
+Step 3 solves the LP problem to achieve the position of the acoustic source.
 \begin{algorithm}
 \caption{LPSBL Method}
-\KwIn { The location of $N$ smartphones \\
+\KwIn { The position of $N$ nodes \\
 \hspace{0.41in} The node sequence of the acoustic source for\\
 \hspace{0.41in} $N$ reference nodes
 }
-\KwOut {Location of the acoustic source}
+\KwOut {Position of the acoustic source}
 
 \textbf{Step 1:} Setting objective function: setting $\bf{c} \leftarrow \bf{0}$;
 
 \textbf{Step 2:} Constructing inequality constraint: \\ 
-\hspace{0.41in} setting $\bm{A}$ and $\bm{b}$ by processing node sequence;\\
+\hspace{0.41in} setting $\bm{A}$ and $\bm{b}$ by processing the node sequence;\\
 \For{$i \leftarrow 1$ \textbf{to} $N-1$}
 {
 \For{$j \leftarrow i+1$ \textbf{to} $N$}
@@ -91,7 +89,7 @@ According to inequality (\ref{equation_2}) to get inequality constraint;
 }
 }
 
-\textbf{Step 3:} Solve LP problem to get the target's location.
+\textbf{Step 3:} Solve LP problem to get the target's position.
 
 \end{algorithm}
 
