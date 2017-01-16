@@ -1,8 +1,7 @@
 
 \section{System Overview}
 
-% 近日用LATEX写一篇论文，需要在双栏版式中加入跨栏的图形:在\begin{figure}中加入*即可，即用\begin{figure*}  \end{figure*} ！
-
+% 双栏版式中加入跨栏的图形:用\begin{figure*}  \end{figure*} ！
 \begin{figure}[htb]
   \centering
  %\setlength{\abovecaptionskip}{-15pt}
@@ -11,7 +10,7 @@
     \caption{Overview of LPSBL}
  \label{overview}
     \end{figure}
-
+\vspace{-5mm}
 
 In this section, we focus mainly on the system overview of our LPSBL system, which aims at locating an unknown node. 
 Fig. 1 shows a layout of a sensor network with anchor nodes and the acoustic source.
@@ -27,9 +26,8 @@ all pairs of reference nodes, they divide the localization
 space into many regions.
 All locations inside a region have the same location
 sequence. If each region in the arrangement is represented by
-its centroid, then there is a one-to-one mapping
-between a location sequence and the centroid of the
-region that it represents.
+its centroid, then there is a one-to-one mapping relationship
+between a location sequence and the centroid of the corresponding region that it represents.
 
 Briefly, sequence-based localization system works as follows. 
 After the acoustic source generates a sound, anchor nodes detect the event sequentially at different time instances that naturally gives an ordering of related nodes, called a node sequence. 
@@ -43,9 +41,9 @@ Moreover, the TOA sequence ${t_A} < {t_C} < {t_B} < {t_D}$ is determined by the 
 
 \noindent \textbf{Problem 1:} Assume that the location of acoustic source is known, the node sequence can be obtained by the distances from nodes to the acoustic source.
 
-Sequence-based localization can be considered as an inverse problem of Problem 1, and described as:
+Sequence-based localization is the inverse problem of Problem 1, can be described as follows.
 
-\noindent \textbf{Problem 2:} Assume that the node sequence obtained from the measurement is known, estimate the location of an acoustic source.
+\noindent \textbf{Problem 2:} Assume that the node sequence obtained from the TOA measurement is known, estimate the location of an acoustic source.
 
     \begin{figure}[!htb]
     \centering

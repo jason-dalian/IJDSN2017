@@ -24,29 +24,29 @@ Yedavalli, \emph{et al.}~\cite{yedavalli2008sequence} proposed a Sequence-Based 
 Each distinct region formed in this manner can be uniquely identified by a location sequence that represents the distance ranks of reference nodes to that region. 
 The unknown node first determines its own location sequence based on the measurement between itself and the reference nodes, then searches through the location sequence table to determine its location.
 
-In this paper, we present a Linear Programming method to Sequence-Based Localization (LPSBL) by processing the node sequence. 
+This report describes an Linear Programming based method
+for the Sequence-Based Localization problem (LPSBL)  in acoustic sensor networks.
+The optimization problem is set up by processing the node sequence. 
 As a range-free approach, this design applies node sequences instead of direct distance
-or TOA measurements for localization, and brings in the following two advantages: (i) node sequences feature better
+or time of arrival(TOA) measurements for localization, and brings in the following two advantages: (i) node sequences feature better
 robustness to the measurement noise; (ii) node sequences significantly alleviate the accuracy requirement of network level time synchronization. 
 Compared with earlier works on sequence-based localization in sensor
 networks (e.g. SBL~\cite{yedavalli2008sequence}), the primary contribution
 of this article is providing an effective and optimal approach
 to solve the sequence-based localization problem for sensor networks. 
 Without brute-force searching in SBL, the proposed LPSBL system formulates the
-sensor node localization as an convex optimization problem
+sequence-based localization as an convex optimization problem
 of finding a feasible solution to a system of multiple linear
 inequalities, which is produced by the node sequences.
-Then, linear programming (LP) can be applied to reliably
-and efficiently deal with the convex optimization problem,
-even in large-scale sensor networks. The proposed design
-is evaluated with both test-bed experiments and extensive
-simulations. Evaluation results show that the proposed
-LPSBL system can provide improved node localization
-accuracy.
+Then, linear programming (LP) can be applied to reliably and efficiently deal with the convex optimization problem,
+even in large-scale sensor networks. 
+The proposed design is evaluated with both test-bed experiments and extensive simulations. 
+%Evaluation results show that the proposed LPSBL system can provide improved localization accuracy with low Computational complexity.
 
 
-The rest of the article is organized as follows. Section \uppercase\expandafter{\romannumeral 2} presents an overview of the  localization system.
-Then, the LPSBL is introduced in section \uppercase\expandafter{\romannumeral 3}.
+The rest of the article is organized as follows. 
+Section \uppercase\expandafter{\romannumeral 2} presents an overview of the  localization system.
+Then, basic LPSBL, simplified LPSBL, incremental LPSBL and LPSBL with flip tolerance, are introduced in section \uppercase\expandafter{\romannumeral 3}, respectively.
 Section \uppercase\expandafter{\romannumeral 4} discusses several practical issues.
 Section \uppercase\expandafter{\romannumeral 5} presents simulation results and an empirical evaluation. Section \uppercase\expandafter{\romannumeral 6} briefly surveys related work.
 Section \uppercase\expandafter{\romannumeral 7} concludes the whole article.
