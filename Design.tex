@@ -65,11 +65,11 @@ Describing the problem of sequence-based localization in the standard form of li
 \end{align*}
 where $\bm {c}$ is zero vector.
 
-To summarize, the LPSBL is presented in Algorithm 1. 
+To summarize, the basic LPSBL is presented in Algorithm 1. 
 The input is the node sequences and locations of anchor; the output is the position of the acoustic source. 
-Step 1 sets the objective function of the optimization problem. 
-Step 2 uses the node sequence to construct the inequality constraint. 
-Step 3 solves the LP problem to achieve the position of the acoustic source.
+% Step 1 sets the objective function of the optimization problem. 
+% Step 2 uses the node sequence to construct the inequality constraint. 
+% Step 3 solves the LP problem to achieve the position of the acoustic source.
 \begin{algorithm}
 \caption{LPSBL Method}
 \KwIn { The position of $N$ nodes \\
@@ -103,11 +103,11 @@ According to inequality (\ref{equation_2}) to get inequality constraint;
   % p({d_i} < {d_j})>\alpha
   % \end{equation}
   
-  In this section， we consider the effect of different constraints among $N(N - 1)/2$ for the proposed LPSBL system.     
+  In this section， we consider the different effect of  $N(N - 1)/2$ constraints for the proposed LPSBL system.     
   We observes that the constraints is tight for AC, CB and BD in the $NodeSeq (A C B D)$.  
   Compared with non-adjacent nodes in the node sequence, the constraint constructed by the two adjacent nodes can contribute more to the localization accuracy. 
   Given the following node sequence $NodeSeq( \cdots ,i,j, \cdots )$ of $N$ nodes, 
-  We present a simplified LPSBL that only uses the adjacent nodes in the node sequence to construct the $N-1$ constraint.
+  we present a simplified LPSBL, called LPSBL-Lite, that only uses the adjacent nodes in the node sequence to construct the $N-1$ constraint.
 
 \begin{algorithm}
 \caption{Simplified LPSBL}
@@ -136,10 +136,10 @@ According to inequality (\ref{equation_2}) to get inequality constraint;
 
 \subsection{Incremental LPSBL }
 
-The data transmitted from the sensor node reach the the server in sequence in WSN.
-The basic idea of the proposed incremental LPSBL is to ultilize the available constraints to solve the linear program.
-Once the new data come, the proposed incremental LPSBL add the new constraints to refresh the location of the acoustic source by solving a
-new linear program.
+The proposed LPSBL system generate the TOA mesaurements from each node in a distributed way.
+These TOA data reach the the sink node (Data Processing Center) in a sequential way.
+The basic idea of the proposed incremental LPSBL is to ultilize the available TOA data to construct constraints, then solve the linear program to achieve the position of the acoustic source.
+Once the new TOA data come, the proposed incremental LPSBL add the one or two new constraints to update the position of the acoustic source.
 \begin{algorithm}
 \caption{Incremental LPSBL Method}
  \KwIn { the first two data package $pack_i$ $pack_j$ \\
@@ -168,7 +168,7 @@ new linear program.
  \setlength{\abovecaptionskip}{-15pt}
                      %\vspace{1mm}  
  %\setlength{\belowcaptionskip}{-5pt}
-    \includegraphics[height=5.0cm]{image/flip.eps} 
+    \includegraphics[height=4.7cm]{image/flip.eps} 
 	\vspace{10mm}
     \caption{The Effect of Sequence Flip}
 	\label{fig2}
