@@ -1,13 +1,15 @@
 \section{Discussion}
 
-\subsection{multiple measurement}
- Sequence flip may provide more constraints to sequence-based localization. 
- When the position of two nodes in the node sequence is often chanced for multiple measurement, 
-it means that the distances from the acoustic source to the two node are nearly common:
+\subsection{multiple measurements}
+ Sequence flip of measurements step is the major factor that affects the localization performance.
+ However, in some cases, sequence flip may provide more tight constraints to sequence-based localization when multiple TOA measurements are taken. 
+ When the position of two nodes in the node sequence is subject to flip during multiple measurements, 
+ it means that the TOA measurements of two nodes is very close,  the acoustic source is near to the perpendicular bisector of two nodes.
+In this case,the distances from the acoustic source to the two node are nearly equal:
    \begin{equation} \label{12}
  \left\| {d_i - d_j } \right\| \le \epsilon_{ij}
   \end{equation}
- where $\rho$ is given threshold parameter. Inequality \eqref{12} is equivalent to the following two linear constraints
+ where $\epsilon$ is given threshold parameter. Inequality \eqref{12} is equivalent to the following two linear constraints
 
  \begin{eqnarray} \label{13}
  \begin{array}{l}
