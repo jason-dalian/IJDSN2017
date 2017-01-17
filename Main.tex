@@ -16,19 +16,35 @@
 \usepackage{caption3}
 \usepackage{bm} %公式加粗
 \usepackage[justification=centering]{caption}
-
-
+\usepackage{url}      % llt: nicely formatted URLs
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\bf\ttfamily}}}
+\makeatother
+\urlstyle{leo}
 
 
 \begin{document}
 
 
 \title {Linear Programming for Sequence-Based Localization in Acoustic Sensor Networks}
-\author {\IEEEauthorblockN{Naigao Jin, Xin Zhou, Xiangqi Kong, Zida Wen, Xiangyu Zhao, Lei Wang}\\
-        \IEEEauthorblockA{School of Software, Dalian University of Technology, China\\
-        Key Laboratory for Ubiquitous Network and Service Software of Liaoning Province\\
-        Email: ngjin@dlut.edu.cn, lei.wang@ieee.org}}
-
+% \author {\IEEEauthorblockN{Naigao Jin, Xin Zhou, Xiangqi Kong, Zida Wen, Lei Wang}\\
+        % \IEEEauthorblockA{School of Software, Dalian University of Technology, China\\
+        % Key Laboratory for Ubiquitous Network and Service Software of Liaoning Province\\
+        % Email: ngjin@dlut.edu.cn, lei.wang@ieee.org}}
+\author
+{
+\IEEEauthorblockN{Naigao Jin\IEEEauthorrefmark{1}, Xin Zhou\IEEEauthorrefmark{1}, Xiangqi Kong\IEEEauthorrefmark{1}, Zida Wen\IEEEauthorrefmark{1}, Xiangyu Zhao\IEEEauthorrefmark{2}, Lei Wang\IEEEauthorrefmark{1}}\\
+\IEEEauthorblockA{\IEEEauthorrefmark{1}Key Laboratory for Ubiquitous Network and Service Software of Liaoning Province\\ School of Software, Dalian University of Technology, China}\\
+\IEEEauthorblockA{\IEEEauthorrefmark{2}School of Computer Science, Fudan University, China}
+}
+% \author{\IEEEauthorblockN{Naigao Jin, Xin Zhou, Xiangqi Kong, Zida Wen, Lei Wang}\\
+% \IEEEauthorblockA{School of Software, Dalian University of Technology, China\\}
+% \and
+% \IEEEauthorblockN{Xiangyu Zhao}\\
+% \IEEEauthorblockA{Department of Electrical and Computer Engineering\\Fudan University, USA}
+% }
+		
 % make the title area
 %\title \author \date 这三个命令放在 \maketitle之前
 

@@ -66,10 +66,8 @@ Describing the problem of sequence-based localization in the standard form of li
 where $\bm {c}$ is zero vector.
 
 To summarize, the basic LPSBL is presented in Algorithm 1. 
-%The input is the node sequences and locations of anchor; the output is the position of the acoustic source. 
- Step 1 sets the objective function of the optimization problem. 
- Step 2 uses the node sequence to construct the inequality constraint. 
- Step 3 solves the LP problem to achieve the position of the acoustic source.
+The input is the node sequences and locations of anchor; the output is the position of the acoustic source. 
+% Step 1 sets the objective function of the optimization problem. Then, inequality constraints are constructed by the node sequence. Finally, LP problem is solved to achieve the position of the acoustic source.
 \begin{algorithm}
 \caption{LPSBL Method}
 \KwIn { The position of $N$ nodes \\
@@ -102,12 +100,12 @@ According to inequality (\ref{equation_2}) to get the inequality constraint;
   % p({d_i} < {d_j})>\alpha
   % \end{equation}
   
-  In this section， we consider the different effect of  $N(N - 1)/2$ constraints for the proposed LPSBL system.     
-  We observes that the constraints is tight for AC, CB and BD in the $NodeSeq (A C B D)$.  
+  In this section, we consider the different effect of  $N(N - 1)/2$ constraints for the proposed LPSBL system.     
+  We observes that the constraints of AC, CB and BD are tight in the $NodeSeq (A C B D)$.  
   Compared with non-adjacent nodes in the node sequence, the constraint constructed by the two adjacent nodes can contribute more to the localization accuracy. 
   Given the following node sequence $NodeSeq( \cdots ,i,j, \cdots )$ of $N$ nodes, 
   we present a simplified LPSBL, called LPSBL-Lite in Algorithm 2, that uses the adjacent nodes in the node sequence to construct $N-1$ constraints of the linear programming.
-
+  The number of constraints is decreased from $N(N - 1)/2$  to $N-1$, that leads to the improvement of computational efficiency at the cost of localization performance.
 \begin{algorithm}
 \caption{Simplified LPSBL}
 \KwIn { The position of $N$ nodes \\
@@ -124,7 +122,7 @@ According to inequality (\ref{equation_2}) to get the inequality constraint;
 {
 \For{$j \leftarrow i+1$}
 {
-According to inequality (\ref{equation_2}) to get the inequality constraint;
+According to inequality (\ref{equation_2}) to set the inequality constraint;
 }
 }
 
@@ -135,11 +133,11 @@ According to inequality (\ref{equation_2}) to get the inequality constraint;
    \vspace{-3mm}  
 \subsection{Incremental LPSBL }
 
-The proposed LPSBL system generate the TOA mesaurements from each node in a distributed way.
-These TOA data reach the the sink node (Data Processing Center) in a sequential way.
+In acoustic sensor network, after the nodes generate TOA mesaurements,
+these TOA data reach the the sink node in a sequential way.
 The basic idea of the proposed incremental LPSBL is to ultilize the available TOA data to construct constraints, then solve the linear program to achieve the position of the acoustic source.
 As described in Algorithm 3, once the new TOA data come, incremental LPSBL add the one or two new constraints to update the position of the acoustic source.
-\begin{algorithm} [!h]
+\begin{algorithm} [b]
 \caption{Incremental LPSBL Method}
  \KwIn {data package $pack_k$($ID_k$,$Location_k$,$TOA_k$) \\
  }
@@ -150,7 +148,7 @@ As described in Algorithm 3, once the new TOA data come, incremental LPSBL add t
                    \hspace{0.0in} (2) Constructing the first constraint \\
 \textbf{Step 2:}    \textbf{while} (the newest data package $pack_k$ reach)\\
                  %   \hspace{0.21in}\textbf{do:}\\
-				Constructing the inequality constraint according to the TOA of the newest data package:  \\
+				%Constructing the inequality constraint according to the TOA of the newest data package:  \\
 			    \hspace{0.0in} (1) Inserting the $TOA_k$ into the arrived TOA sequence \\
 				\hspace{0.3in}by sorting algorithm\\
                    \hspace{0.0in} (2) Constructing one or two new constraints by $TOA_k$ \\ 
@@ -165,7 +163,7 @@ As described in Algorithm 3, once the new TOA data come, incremental LPSBL add t
 
 \subsection{LPSBL with Flip Tolerance }
 
-    \begin{figure}[!htb]
+    \begin{figure}[!h]
     \centering
  \setlength{\abovecaptionskip}{-15pt}
                      %\vspace{1mm}  
