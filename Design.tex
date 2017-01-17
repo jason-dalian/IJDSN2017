@@ -135,20 +135,20 @@ According to inequality (\ref{equation_2}) to set the inequality constraint;
 
 In acoustic sensor network, after the nodes generate TOA mesaurements,
 these TOA data reach the the sink node in a sequential way.
-The basic idea of the proposed incremental LPSBL is to ultilize the available TOA data to construct constraints, then solve the linear program to achieve the position of the acoustic source.
-As described in Algorithm 3, once the new TOA data come, incremental LPSBL add the one or two new constraints to update the position of the acoustic source.
+The basic idea of the proposed incremental LPSBL is to ultilize the available TOA data to construct constraints, then solve the linear programming problem to estimate the position of the acoustic source.
+As described in Algorithm 3, once the latest TOA mesaurement arrives, incremental LPSBL add one or two new constraints to update the position of the acoustic source.
 \begin{algorithm} [b]
 \caption{Incremental LPSBL Method}
- \KwIn {data package $pack_k$($ID_k$,$Location_k$,$TOA_k$) \\
+ \KwIn {Data package $pack_k$($ID_k$,$Location_k$,$TOA_k$) \\
  }
  \KwOut {Position of the acoustic source}
 
  \textbf{Step 1:} Initialization \\
-                   \hspace{0.0in} (1) Sorting TOAs of the first two data package  \\
+                   \hspace{0.0in} (1) Sorting TOAs of the first two data packages  \\
                    \hspace{0.0in} (2) Constructing the first constraint \\
-\textbf{Step 2:}    \textbf{while} (the newest data package $pack_k$ reach)\\
+\textbf{Step 2:}    \textbf{while} (the latest data package $pack_k$ arrives)\\
                  %   \hspace{0.21in}\textbf{do:}\\
-				%Constructing the inequality constraint according to the TOA of the newest data package:  \\
+				%Constructing the inequality constraint according to the TOA of the latest data package:  \\
 			    \hspace{0.0in} (1) Inserting the $TOA_k$ into the arrived TOA sequence \\
 				\hspace{0.3in}by sorting algorithm\\
                    \hspace{0.0in} (2) Constructing one or two new constraints by $TOA_k$ \\ 
@@ -158,12 +158,11 @@ As described in Algorithm 3, once the new TOA data come, incremental LPSBL add t
  \end{algorithm}
 
 
- 
-
-
 \subsection{LPSBL with Flip Tolerance }
 
-    \begin{figure}[!h]
+For the sake of presentation, so far we have described LPSBL in an ideal case where a complete and perfect node sequence can be obtained. 
+In this section, we describe how to make LPSBL system works well under more realistic conditions. 
+    \begin{figure}[H]
     \centering
  \setlength{\abovecaptionskip}{-15pt}
                      %\vspace{1mm}  
@@ -171,20 +170,16 @@ As described in Algorithm 3, once the new TOA data come, incremental LPSBL add t
     \includegraphics[height=4.7cm]{image/flip.eps} 
 	\vspace{10mm}
     \caption{The Effect of Sequence Flip}
-	\label{fig2}
+	\label{flip}
     \vspace{-5mm}
     \end{figure}
-
-For the sake of presentation, until now we have described LPSBL in an ideal case where a complete and perfect node sequence can be obtained. 
-In this section, we describe how to make LPSBL work well under more realistic conditions. 
-
 In the practical application, if two nodes are located too close to each other along the direction of event propagation, they detect the event almost simultaneously. 
 In this case, the node ordering in the sequence may occur flip. 
 For instance, the true sequence is $NodeSeq ( \cdots ,i,j, \cdots )$, but the detected sequence is $NodeSeq ( \cdots ,j,i, \cdots )$.
 Algorithm 1 can find a solution to this feasibility program only if there is an embedding satisfying all of the constraints. 
 However, it is impossible to find a feasible solution that satisfies all of the constraints when sequence flip occurs. 
-For example, as showed in Fig. 2, the right middle region identifies by the node sequence $NodeSeq (D C A B)$. 
-Once the order of node A and B occur flip in $NodeSeq (D C A B)$, the region corresponding to $NodeSeq (D C B A)$ does not exist, Algorithm 1 can not give the accurate estimation.
+For example, as shown in Fig. \ref{flip}, the right middle region is identified by the node sequence $NodeSeq (D C A B)$. 
+When the order of node A and B occur flip in $NodeSeq (D C A B)$, the corresponding region does not exist, and Algorithm 1 can not give an accurate estimation.
 In this section, we propose the solution to address the problem of sequence flip using traditional convex relaxation techniques.
 
 
@@ -212,7 +207,7 @@ As a result, LPSBL with error tolerance can be formulated as a convex optimizati
 %where the objective function of optimization problem is the total amount of all slacks. 
 
 In the optimization problem expressed by the equation \eqref{5}, the problem of inequality violations can be solved by introducing a slack variable for each inequality \cite{Boyd2004}.
-Therefore, the proposed LPSBL can provide the robust estimation when the problem of sequence flip occurs.
+Therefore, the proposed LPSBL can provide the robust estimation when sequence flip occurs.
 
  
 \subsection{Complexity Analysis}

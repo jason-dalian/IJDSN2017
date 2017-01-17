@@ -2,11 +2,11 @@
 \label{section:results}
 This section presents a thorough evaluation of our sequence-based localization based on linear programming (LPSBL).
 In the first half of this section, we evaluate the parameters that affect the localization performance of LPSBL.
-In the second half, test-bed experiment is carried out in indoor environments to vrified the system performance.
+In the second half, test-bed experiment is carried out in indoor environments to verified the system performance.
 
 \subsection{Simulation}
 We develop a Monte Carlo simulator to evaluate the localization performance under different conditions.
-In the simulation, the nodes are randomly depolyed in a field of $10m \times 10m$. 
+In the simulation, the nodes are randomly deployed in a field of $10m \times 10m$. 
 Considering the impact of the uncertainty of node position and TOA detection, we add a certain amount of node location error and TOA measure error in all the simulations.
 All the statistics are running more than 100 times for high confidence, and reported by RMSE figure. 
 Table 1 illustrates the default simulation setup parameters.
@@ -19,11 +19,11 @@ Parameter & Description \\
  \hline
 Field Area & 10m $\times$ 10m \\
 \hline
-Number of Anchors & 50 (Default) \\
+Number of Anchors & 20 (Default) \\
  \hline
-Position Error of Nodes	 & 0.10m (Default) \\
+Position Error of Nodes	 & 0.05m (Default) \\
  \hline
-TOA Detection Error 	 & 0.10ms (Default) \\
+TOA Detection Error 	 & 0.50ms (Default) \\
  \hline
 Random-Seed Loop	 & 500 times (Default) \\
  \hline
@@ -91,7 +91,7 @@ In conclusion one can observe that the error of TOA measurement has significant 
 
   
  \subsection{Result of Incremental LPSBL}
- In this simulation, we discusses the performance of incremental LPSBL.
+ In this simulation, we discuss the performance of incremental LPSBL.
 We investigate the localization error and number of anchors with a different number of anchors from 10 to 40 in steps of 2. 
  We run the simulation with the TOA error is 0.1ms, and other simulation parameters are default. 
  Figure \ref{fig8} reports the average localization error of localization methods. 
@@ -100,7 +100,7 @@ We investigate the localization error and number of anchors with a different num
     \begin{figure}[htb]       
             \centering
 			\vspace{-3mm}
-            \includegraphics[height=5.0cm,width=7.0cm]{image/Nodenumbers.eps}
+            \includegraphics[height=5.0cm,width=7.0cm]{image/Incremental.eps}
                 \caption{Localization Error vs. TOA Error}
              \vspace{-8mm}
              \label{fig8}
