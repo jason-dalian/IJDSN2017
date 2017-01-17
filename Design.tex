@@ -66,10 +66,10 @@ Describing the problem of sequence-based localization in the standard form of li
 where $\bm {c}$ is zero vector.
 
 To summarize, the basic LPSBL is presented in Algorithm 1. 
-The input is the node sequences and locations of anchor; the output is the position of the acoustic source. 
-% Step 1 sets the objective function of the optimization problem. 
-% Step 2 uses the node sequence to construct the inequality constraint. 
-% Step 3 solves the LP problem to achieve the position of the acoustic source.
+%The input is the node sequences and locations of anchor; the output is the position of the acoustic source. 
+ Step 1 sets the objective function of the optimization problem. 
+ Step 2 uses the node sequence to construct the inequality constraint. 
+ Step 3 solves the LP problem to achieve the position of the acoustic source.
 \begin{algorithm}
 \caption{LPSBL Method}
 \KwIn { The position of $N$ nodes \\
@@ -86,15 +86,14 @@ The input is the node sequences and locations of anchor; the output is the posit
 {
 \For{$j \leftarrow i+1$ \textbf{to} $N$}
 {
-According to inequality (\ref{equation_2}) to get inequality constraint;
+According to inequality (\ref{equation_2}) to get the inequality constraint;
 }
 }
 
 \textbf{Step 3:} Solve LP problem to get the target's position.
-
 \end{algorithm}
 
-
+ \vspace{-3mm}  
  \subsection{Simplified LPSBL}
  
 % However, compared with the constraint of AD, the the constraint of AC is subject to flip.
@@ -107,7 +106,7 @@ According to inequality (\ref{equation_2}) to get inequality constraint;
   We observes that the constraints is tight for AC, CB and BD in the $NodeSeq (A C B D)$.  
   Compared with non-adjacent nodes in the node sequence, the constraint constructed by the two adjacent nodes can contribute more to the localization accuracy. 
   Given the following node sequence $NodeSeq( \cdots ,i,j, \cdots )$ of $N$ nodes, 
-  we present a simplified LPSBL, called LPSBL-Lite, that only uses the adjacent nodes in the node sequence to construct the $N-1$ constraint.
+  we present a simplified LPSBL, called LPSBL-Lite in Algorithm 2, that uses the adjacent nodes in the node sequence to construct $N-1$ constraints of the linear programming.
 
 \begin{algorithm}
 \caption{Simplified LPSBL}
@@ -125,7 +124,7 @@ According to inequality (\ref{equation_2}) to get inequality constraint;
 {
 \For{$j \leftarrow i+1$}
 {
-According to inequality (\ref{equation_2}) to get inequality constraint;
+According to inequality (\ref{equation_2}) to get the inequality constraint;
 }
 }
 
@@ -133,28 +132,31 @@ According to inequality (\ref{equation_2}) to get inequality constraint;
 
 \end{algorithm}
 
-
+   \vspace{-3mm}  
 \subsection{Incremental LPSBL }
 
 The proposed LPSBL system generate the TOA mesaurements from each node in a distributed way.
 These TOA data reach the the sink node (Data Processing Center) in a sequential way.
 The basic idea of the proposed incremental LPSBL is to ultilize the available TOA data to construct constraints, then solve the linear program to achieve the position of the acoustic source.
-Once the new TOA data come, the proposed incremental LPSBL add the one or two new constraints to update the position of the acoustic source.
-\begin{algorithm}
+As described in Algorithm 3, once the new TOA data come, incremental LPSBL add the one or two new constraints to update the position of the acoustic source.
+\begin{algorithm} [!h]
 \caption{Incremental LPSBL Method}
- \KwIn { the first two data package $pack_i$ $pack_j$ \\
- \hspace{0.41in} newest data package $pack_k$ \\
+ \KwIn {data package $pack_k$($ID_k$,$Location_k$,$TOA_k$) \\
  }
- \KwOut {Location of the acoustic source}
- 
- \textbf{Step 1:}  Initial LP problem using the first two data package $pack_i$ $pack_j$ \\
-          while (the newest data package $pack_k$ reach)\\		 
-		   $pack_k$ ($ID_k$,$Location_k$,$TOA_k$)\\
-\textbf{Step 2:}  Constructing inequality constraint according to the TOA of the newest data package : \\ 
+ \KwOut {Position of the acoustic source}
 
-\textbf{Step 3:} Solve LP problem to get the target's location.\\
-       
- 
+ \textbf{Step 1:} Initialization \\
+                   \hspace{0.0in} (1) Sorting TOAs of the first two data package  \\
+                   \hspace{0.0in} (2) Constructing the first constraint \\
+\textbf{Step 2:}    \textbf{while} (the newest data package $pack_k$ reach)\\
+                 %   \hspace{0.21in}\textbf{do:}\\
+				Constructing the inequality constraint according to the TOA of the newest data package:  \\
+			    \hspace{0.0in} (1) Inserting the $TOA_k$ into the arrived TOA sequence \\
+				\hspace{0.3in}by sorting algorithm\\
+                   \hspace{0.0in} (2) Constructing one or two new constraints by $TOA_k$ \\ 
+				  \hspace{0.28in} and its neighbors\\
+                   \hspace{0.0in} (3) Solve the LP problem based on existing constraints\\
+                   \textbf{end while}\\
  \end{algorithm}
 
 
@@ -209,7 +211,7 @@ As a result, LPSBL with error tolerance can be formulated as a convex optimizati
   \begin{align*}
  s.t.\   d_i - d_j  \le  \xi _{ij} \
 \end{align*}
-where the objective function of optimization problem is the total amount of all slacks. 
+%where the objective function of optimization problem is the total amount of all slacks. 
 
 In the optimization problem expressed by the equation \eqref{5}, the problem of inequality violations can be solved by introducing a slack variable for each inequality \cite{Boyd2004}.
 Therefore, the proposed LPSBL can provide the robust estimation when the problem of sequence flip occurs.

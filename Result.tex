@@ -37,10 +37,8 @@ The results of simulation evaluation are as following:
 \textbf{1) Impact of the number of nodes:}
  In this experiment, we investigate the localization error and number of anchors with a different number of anchors from 10 to 40 in steps of 2. 
  We run the simulation with the TOA error is 0.1ms, and other simulation parameters are default. 
- Since the two localization methods being compared are aiming to locate the target by processing the anchors, 
- but the SBL method can cause a big error, while the LPSBL method is aiming to avoid the appearance and get better result. 
- We can speculate that with more anchors, the whole area will be divided into smaller parts, 
- thus more accurate localization estimation should be achieved in the LPSBL method. 
+ With more anchors, the whole area will be divided into smaller parts, 
+ thus more accurate localization estimation should be achieved in the three methods. 
 Fig. \ref{fig4} confirms our expectation. As shown in Fig. \ref{fig4}, with the number of anchors increases, localization error for both  methods are down slowly. 
 Fig. \ref{fig4} also shows that the localization error of the LPSBL method is approximate to the SBL method when the number of anchor node is larger.
   \begin{figure}[htb]
@@ -90,6 +88,25 @@ In conclusion one can observe that the error of TOA measurement has significant 
  % (1) With increasing number of the number of anchors, localization errors decrease for both methods, and LPSBL has better localization performance;
  % (2) The error of node position can impact the localization error, the proposed LPSBL method is more robust to the error of node position than SBL method;
   % (3) The TOA measurement error has a major impact on the localization accuracy, and the proposed LPSBL method can achieve better localization performance.
+
+  
+ \subsection{Result of Incremental LPSBL}
+ In this simulation, we discusses the performance of incremental LPSBL.
+We investigate the localization error and number of anchors with a different number of anchors from 10 to 40 in steps of 2. 
+ We run the simulation with the TOA error is 0.1ms, and other simulation parameters are default. 
+ Figure \ref{fig8} reports the average localization error of localization methods. 
+ Compared with the LPSBL, the localization performance of incremental LPSBL is slightly decreased.
+ 
+    \begin{figure}[htb]       
+            \centering
+			\vspace{-3mm}
+            \includegraphics[height=5.0cm,width=7.0cm]{image/Nodenumbers.eps}
+                \caption{Localization Error vs. TOA Error}
+             \vspace{-8mm}
+             \label{fig8}
+        \end{figure}
+		
+
 
   \subsection{Emulation}
 
