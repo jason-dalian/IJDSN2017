@@ -53,10 +53,10 @@ x_n^2-x_{n-1}^2+y_n^2-y_{n-1}^2
 
 
 The problem of finding a feasible solution to a system of linear inequalities can be described as a linear programming problem in which the objective function is zero. 
-We can find a solution to this feasibility program only if there is an embedding satisfying all of the constraints. 
+We can find a solution to this feasibility program only if there is an region satisfying all of the constraints. 
 We utilize the nodes sequences to set the inequality constraint.
 The bound constraint in the linear programming problem is set based on the size of the network deployment area.
-Describing the problem of sequence-based localization in the standard form of linear programming as
+Describe the problem of sequence-based localization in the standard form of linear programming as
  \begin{equation} \label{6}
  \quad \quad \bm {\hat X_s} = \min {\bm{c^T}\bm{X_s}}
   \end{equation}
@@ -105,7 +105,7 @@ According to inequality (\ref{equation_2}) to get the inequality constraint;
   Compared with non-adjacent nodes in the node sequence, the constraint constructed by the two adjacent nodes can contribute more to the localization accuracy. 
   Given the following node sequence $NodeSeq( \cdots ,i,j, \cdots )$ of $N$ nodes, 
   we present a simplified LPSBL, called LPSBL-Lite in Algorithm 2, that uses the adjacent nodes in the node sequence to construct $N-1$ constraints of the linear programming.
-  The number of constraints is decreased from $N(N - 1)/2$  to $N-1$, that leads to the improvement of computational efficiency at the cost of localization performance.
+  The number of constraints decreases from $N(N - 1)/2$  to $N-1$, that leads to the improvement of computational efficiency at the cost of localization performance.
 \begin{algorithm}
 \caption{Simplified LPSBL}
 \KwIn { The position of $N$ nodes \\
@@ -134,9 +134,9 @@ According to inequality (\ref{equation_2}) to set the inequality constraint;
 \subsection{Incremental LPSBL }
 
 In acoustic sensor network, after the nodes generate TOA mesaurements,
-these TOA data reach the the sink node in a sequential way.
+these TOA data arrives the the sink node in a sequential way.
 The basic idea of the proposed incremental LPSBL is to ultilize the available TOA data to construct constraints, then solve the linear programming problem to estimate the position of the acoustic source.
-As described in Algorithm 3, once the latest TOA mesaurement arrives, incremental LPSBL add one or two new constraints to update the position of the acoustic source.
+As described in Algorithm 3, once the latest TOA measurement arrives, incremental LPSBL adds one or two new constraints to update the position of the acoustic source.
 \begin{algorithm} [b]
 \caption{Incremental LPSBL Method}
  \KwIn {Data package $pack_k$($ID_k$,$Location_k$,$TOA_k$) \\
@@ -160,8 +160,8 @@ As described in Algorithm 3, once the latest TOA mesaurement arrives, incrementa
 
 \subsection{LPSBL with Flip Tolerance }
 
-For the sake of presentation, so far we have described LPSBL in an ideal case where a complete and perfect node sequence can be obtained. 
-In this section, we describe how to make LPSBL system works well under more realistic conditions. 
+For the sake of presentation, we have described LPSBL in an ideal case where a perfect node sequence can be obtained so far. 
+In this section, we describe how to deal with the sequence flip problem, and make LPSBL system works well under more realistic conditions. 
     \begin{figure}[H]
     \centering
  \setlength{\abovecaptionskip}{-15pt}
@@ -176,10 +176,10 @@ In this section, we describe how to make LPSBL system works well under more real
 In the practical application, if two nodes are located too close to each other along the direction of event propagation, they detect the event almost simultaneously. 
 In this case, the node ordering in the sequence may occur flip. 
 For instance, the true sequence is $NodeSeq ( \cdots ,i,j, \cdots )$, but the detected sequence is $NodeSeq ( \cdots ,j,i, \cdots )$.
-Algorithm 1 can find a solution to this feasibility program only if there is an embedding satisfying all of the constraints. 
+Algorithm 1 gives a solution to this feasibility program only if there is a region satisfying all of the constraints. 
 However, it is impossible to find a feasible solution that satisfies all of the constraints when sequence flip occurs. 
 For example, as shown in Fig. \ref{flip}, the right middle region is identified by the node sequence $NodeSeq (D C A B)$. 
-When the order of node A and B occur flip in $NodeSeq (D C A B)$, the corresponding region does not exist, and Algorithm 1 can not give an accurate estimation.
+When the order of node A and B occurs flip in $NodeSeq (D C A B)$, the corresponding region does not exist, and Algorithm 1 can not give an accurate estimation.
 In this section, we propose the solution to address the problem of sequence flip using traditional convex relaxation techniques.
 
 

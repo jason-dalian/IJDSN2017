@@ -31,7 +31,7 @@ between a location sequence and the centroid of the corresponding region that it
 
 Briefly, sequence-based localization system works as follows. 
 After the acoustic source generates a sound, anchor nodes detect the event sequentially at different time instances that naturally gives an ordering of related nodes, called a node sequence. 
-For instance, in Fig. 1, when the acoustic source generates a wave, the node sequence $NodeSeq (A C B D)$ is obtained along the sound propagation. 
+For instance, in Fig. 1, when the acoustic source generates a sound wave, the node sequence $NodeSeq (A C B D)$ is obtained along the sound propagation. 
 The location information of acoustic source is embedded within the node sequence. 
 The node sequence of a given region is unique to that region.
 By collecting all sensing results, locations of the acoustic source can be estimated by processing the node sequence. 
@@ -39,11 +39,11 @@ By collecting all sensing results, locations of the acoustic source can be estim
 Specifically, as shown in Fig. 2, $NodeSeq (A C B D)$ can be obtained by time of arrival (TOA) information of the acoustic event.
 Moreover, the TOA sequence ${t_A} < {t_C} < {t_B} < {t_D}$ is determined by the distance sequence ${d_A} < {d_C} < {d_B} < {d_D}$ from each node to the acoustic source $S$.
 
-\noindent \textbf{Problem 1:} Assume that the location of acoustic source is known, the node sequence can be obtained by the distances from nodes to the acoustic source.
+\noindent \textbf{Problem 1:} Assume that the location of acoustic source is known, and the node sequence can be obtained by the distances from nodes to the acoustic source.
 
 Sequence-based localization is the inverse problem of Problem 1, can be described as follows.
 
-\noindent \textbf{Problem 2:} Assume that the node sequence obtained from the TOA measurement is known, estimate the location of an acoustic source.
+\noindent \textbf{Problem 2:} Assume that the node sequence obtained from the TOA measurement is known, and estimate the location of an acoustic source.
 
     \begin{figure}[!htb]
     \centering

@@ -1,8 +1,8 @@
 \section{EVALUATION }
 \label{section:results}
-This section presents a thorough evaluation of our sequence-based localization based on linear programming (LPSBL).
+This section presents a thorough evaluation of our LPSBL system.
 In the first half of this section, we evaluate the parameters that affect the localization performance of LPSBL.
-In the second half, test-bed experiment is carried out in indoor environments to verified the system performance.
+In the second half of this section, test-bed experiment is carried out in indoor environments to verified the localization ability of the LPSBL system.
 
 \subsection{Simulation}
 We develop a Monte Carlo simulator to evaluate the localization performance under different conditions.
@@ -39,8 +39,8 @@ The results of simulation evaluation are as following:
  We run the simulation with the TOA error is 0.1ms, and other simulation parameters are default. 
  With more anchors, the whole area will be divided into smaller parts, 
  thus more accurate localization estimation should be achieved in the three methods. 
-Fig. \ref{fig4} confirms our expectation. As shown in Fig. \ref{fig4}, with the number of anchors increases, localization error for both  methods are down slowly. 
-Fig. \ref{fig4} also shows that the localization error of the LPSBL method is approximate to the SBL method when the number of anchor node is larger.
+Figure \ref{Nodenumbers} confirms our expectation. As shown in Fig. \ref{Nodenumbers}, with the number of anchors increases, localization error for both  methods are down slowly. 
+Figure \ref{Nodenumbers} also shows that the localization error of the LPSBL method is approximate to the SBL method when the number of anchor node is larger.
   \begin{figure}[htb]
             \setlength{\abovecaptionskip}{0pt}
             \centering
@@ -49,7 +49,7 @@ Fig. \ref{fig4} also shows that the localization error of the LPSBL method is ap
            % \vspace{15mm}
             \caption{Localization Error vs. Number of Nodes}
              \vspace{-5mm}
-             \label{fig4}
+             \label{Nodenumbers}
         \end{figure}	
 		
 \textbf{2) Impact of the position errors of nodes:}
@@ -94,7 +94,7 @@ In conclusion one can observe that the error of TOA measurement has significant 
  In this simulation, we discuss the performance of incremental LPSBL.
 We investigate the localization error and number of anchors with a different number of anchors from 10 to 40 in steps of 2. 
  We run the simulation with the TOA error is 0.1ms, and other simulation parameters are default. 
- Figure \ref{fig8} reports the average localization error of localization methods. 
+ Figure \ref{Incremental} reports the average localization error of localization methods. 
  Compared with the LPSBL, the localization performance of incremental LPSBL is slightly decreased.
  
     \begin{figure}[htb]       
@@ -103,7 +103,7 @@ We investigate the localization error and number of anchors with a different num
             \includegraphics[height=5.0cm,width=7.0cm]{image/Incremental.eps}
                 \caption{Localization Error vs. TOA Error}
              \vspace{-8mm}
-             \label{fig8}
+             \label{Incremental}
         \end{figure}
 		
 
@@ -114,10 +114,10 @@ In this section, we evaluate the localization performance of LPSBL system in our
 we use 30 Samsung smartphones as anchors and connect them through CISCO CVR328W-K9-CN wireless router. 
 TPSN protocol is adapted in the proposed LPSBL system to realize time synchronization.
 The 30 smartphones are randomly deployed in a size of 16m$\times$10m space and there just one dominating acoustic source during an experiment.
-In the experiment, smartphones are random deployed in the space, and 100 times localization results are shown in Fig.~\ref{fig7}. 
+In the experiment, smartphones are random deployed in the space, and 100 times localization results are shown in Fig.~\ref{emulation}. 
 In the figure, blue squares stand for smartphones, red circle squares are the real position of acoustic sources, and black dot are the estimated location by LPSBL. 
 An arrow origins from the estimated location of each acoustic source and points to its real position. 
-As the results shown in Fig.\ref{fig7}, most of estimated locations of the acoustic sources are close to the ground truth.
+As the results shown in Fig.~\ref{emulation}, most of estimated locations of the acoustic sources are close to the ground truth.
 The localization errors are very small except some point near the bound of network, it is normal for the SBL-type methods.
 The experiments of test-bed shows that LPSBL can effectively localize the acoustic source in the practical application.
   \begin{figure}[htb]
@@ -126,5 +126,5 @@ The experiments of test-bed shows that LPSBL can effectively localize the acoust
             \includegraphics[height=6cm,width=9.0cm]{image/emulation.eps}
              \caption{Test-bed localization result of the proposed LPSBL}
              \vspace{-5mm}
-             \label{fig7}
+             \label{emulation}
         \end{figure}

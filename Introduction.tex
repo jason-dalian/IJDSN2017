@@ -1,7 +1,7 @@
 
 \section{Introduction}
 
-Acoustic source localization (ASL) plays an important role in a wide range of application scenarios, such
+Acoustic source localization (ASL) is an important signal processing task, and has a wide range of application scenarios, such
 as speaker-location-aware audio capturing in videoconferencing \cite{guo2011localising}, shooter localization in a battle field \cite{sallai2011acoustic}, and wild biological acoustic studies \cite{allen2008voxnet}. 
 The traditional centralized microphone array-based solution to ASL exploited multiple synchronized microphones to simultaneously acquire multiple signals, 
 which have some limitations with regard to the distances between the microphones, and sensing range for the large-scale applications.
@@ -9,23 +9,24 @@ Wireless acoustic sensor networks (WASNs) can overcome these limitations.
 A WASN consists of a set of wireless microphone nodes that are spatially distributed over the environment, usually in an ad-hoc fashion. 
 Due to the wireless communication capabilities, the array-size limitations disappear and the microphone nodes can physically cover a much larger area. 
 
-Acoustic source localization problem in sensor networks has been widely studied in the literature. 
-ASL in WASN is becoming feasible due to recent advances in personal portable computing devices with the rapid deployment ability.
 % Wang, \emph{et al.} \cite{wang2003acoustic} described a system having static cluster architecture, the system experienced a problem in that the accuracy decreased when an acoustic source occurred between the clusters.
 % Chen, \emph{et al.} \cite{chen2004dynamic} showed that nodes in the system did not need to recognize their cluster head, reducing the constraints on deployment of the localization system.
 % Hu, et al. \cite{hu2009design} design the system based on 2-tier architecture, which experienced cost and deployment problems especially in the very large target area.
 % Rabbat, \emph{et al.} \cite{rabbat2005robust} proposed a decentralized algorithm based on the distributed ML estimation technique using token ring architecture.
 % Kim, \emph{et al.} \cite{kim2009locating} proposed to identify the node closest to the acoustic source, based on TOA comparisons between all nodes, thus incurring high communication cost and requiring global synchronization between all sensor nodes.
 % Lightning is a method proposed in \cite{wang2008lightning} to identify the sensor closest to the acoustic source, also based on expensive broadcasting/flooding.
-Most of the distributed acoustic source localization systems are range-based localization, which are built on top of distance or angle measurements among sensor nodes. 
+Acoustic source localization problem in sensor networks has been widely studied in the literature. 
+There is a trade-off between the accuracy of localization and the computational complexity for existing different solutions.
+Most of the acoustic source localization systems are range-based localization, which are built on top of distance or angle measurements among sensor nodes. 
 These approaches can provide good localization performance, however, generally require costly hardware and have limited effective range due to energy constraints. 
-The requirement of low cost and power prohibits many range-based methods for sensor node localization, especially for large-scale deployments. 
-Yedavalli, \emph{et al.}~\cite{yedavalli2008sequence} proposed a Sequence-Based Localization (SBL) in wireless sensor networks. The heart of SBL is the division of a 2D localization space into distinct regions by the perpendicular bisectors of lines joining pairs of reference nodes (nodes with known locations).
-Each distinct region formed in this manner can be uniquely identified by a location sequence that represents the distance ranks of reference nodes to that region. 
-The unknown node first determines its own location sequence based on the measurement between itself and the reference nodes, then searches through the location sequence table to determine its location.
+%The requirement of low cost and power prohibits many range-based methods for acoustic source localization, especially for large-scale deployments. 
+Yedavalli, \emph{et al.}~\cite{yedavalli2008sequence} proposed a range-free Sequence-Based Localization (SBL) method in wireless sensor networks. The heart of SBL is the division of a 2D localization space into distinct regions by the perpendicular bisectors of lines joining pairs of reference nodes (nodes with known locations).
+Each distinct region formed in this manner can be uniquely identified by a location sequence that represents the distance ranks of sensor nodes to that region. 
+Based on the rank of measurements between the acoustic source and the sensor nodes, the location of acoustic source can be estimated by searching through the node sequence table.
 
+ASL in WASN is becoming feasible due to recent advances in personal portable computing devices with the rapid deployment ability.
 This report describes a Linear Programming based method
-for the Sequence-Based Localization problem (LPSBL)  in acoustic sensor networks.
+for the Sequence-Based Localization problem (LPSBL)  in smartphones-based acoustic sensor networks.
 The optimization problem is set up by processing the node sequence. 
 As a range-free approach, this design applies node sequences instead of direct distance
 or time of arrival (TOA) measurements for localization, and brings in the following two advantages: (i) node sequences feature better
@@ -41,15 +42,15 @@ inequalities, which is produced by the node sequences.
 Then, linear programming (LP) can be applied to reliably and efficiently deal with the convex optimization problem,
 even in large-scale sensor networks. 
 The proposed design is evaluated with both test-bed experiments and extensive simulations. 
-%Evaluation results show that the proposed LPSBL system can provide improved localization accuracy with low Computational complexity.
+Evaluation results show that the proposed LPSBL system can provide improved localization accuracy with low computational complexity.
 
 
 The remainder of the article is organized as follows. 
 Section \uppercase\expandafter{\romannumeral 2} presents an overview of the  localization system.
-Then, basic LPSBL, simplified LPSBL, incremental LPSBL and LPSBL with flip tolerance, are introduced in section \uppercase\expandafter{\romannumeral 3}, respectively.
+Then, basic LPSBL, incremental LPSBL and LPSBL with flip tolerance, are introduced in section \uppercase\expandafter{\romannumeral 3}, respectively.
 Section \uppercase\expandafter{\romannumeral 4} discusses several practical issues.
 Section \uppercase\expandafter{\romannumeral 5} presents simulation results and an empirical evaluation. Section \uppercase\expandafter{\romannumeral 6} briefly surveys related work.
-Section \uppercase\expandafter{\romannumeral 7} concludes the whole article.
+Section \uppercase\expandafter{\romannumeral 7} concludes the article.
 
 
 
