@@ -1,5 +1,5 @@
 set path= %path%;C:\Users\Administrator\AppData\Local\GitHub\PortableGit_d7effa1a4a322478cd29c826b52a0c118ad3db11\cmd;C:\Program Files (x86)\Adobe\Acrobat 11.0\Acrobat
-%Acrobat.exe   main.pdf
+;Acrobat.exe   main.pdf
 
 del *.bak
 del *.sav
